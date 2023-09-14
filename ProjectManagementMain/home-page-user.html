@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C-OIS Scholar Online Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style-sheets/home-page-user.css" />
+  </head>
+  <body>
+    <section class="side">
+      <img src="image-source/icon-brand.svg" alt="" />
+    </section>
+
+    <section class="main">
+      <div class="login-container">
+        <section class="logo-source">
+          <img src="image-source/logo-source-a.svg" alt="" />
+        </section>
+        <p class="title">Scholar Access</p>
+        <div class="separator"></div>
+        <p class="welcome-message">Login to your Account</p>
+
+        <form class="login-form">
+          <div class="form-control">
+            <input type="text" placeholder="Email" id="userEmail" required />
+            <i class="fas fa-user"></i>
+          </div>
+
+          <div class="form-control">
+            <input
+              type="password"
+              placeholder="Password"
+              id="userPassword"
+              required
+            />
+            <i class="fas fa-lock"></i>
+          </div>
+
+          <button class="submit" value="login" id="userLogin">Login</button>
+        </form>
+        <a href="home-page-admin.html"
+          ><p class="admin-link">Administrator Here</p></a
+        >
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const userEmail = "sample@company.com";
+        const userPassword = "password";
+        const loginButton = document.getElementById("userLogin");
+
+        loginButton.addEventListener("click", function (event) {
+          event.preventDefault();
+
+          const enteredEmail = document.getElementById("userEmail").value;
+          const enteredPassword = document.getElementById("userPassword").value;
+
+          if (enteredEmail === userEmail && enteredPassword === userPassword) {
+            window.location.href = "dashboard-sample.html";
+          } else {
+            alert("Invalid credentials. Please try again.");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
