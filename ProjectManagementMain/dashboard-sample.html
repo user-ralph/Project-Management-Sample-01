@@ -4,22 +4,59 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="style-sheets/dashboard-sample.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Student Dashboard</title>
   </head>
   <body>
-    <!-- Side Menu using boostrap -->
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+    <!-- navbar -->
+    <nav class="navbar">
+      <img src="image-source/OIS-logo.svg" class="logo-image">
+      <div class="profile">
+        <span class="fas fa-search"></span>
+        <img src="image-source/sample-avatar.jpg" class="profile-image">
+        <p class="profile-name">Ralph Vincent</p>
+      </div>
+    </nav>
+
+    <!-- sidebar -->
+    <input type="checkbox" id="toggle">
+    <label class="side-toggle" for="toggle"><span class="fas fa-bars"></span></label>
+
+    <div class="sidebar">
+      <div class="sidebar-menu">
+        <span class="fas fa-clipboard-list"></span><p>Overview</p>
+      </div>
+      <div class="sidebar-menu">
+        <span class="fas fa-users"></span><p>Teams</p>
+      </div>
+      <div class="sidebar-menu">
+        <span class="fas fa-credit-card"></span><p>Payment</p>
+      </div>
+      <div class="sidebar-menu">
+        <span class="fas fa-chart-line"></span><p>Statistics</p>
+      </div>
+      <div class="sidebar-menu">
+        <span class="fas fa-id-card"></span><p>Contact</p>
+      </div>
+      <div class="sidebar-menu">
+        <span class="fas fa-cog"></span><p>Settings</p>
+      </div>
+    </div>
+
+    </main>
   </body>
 </html>
