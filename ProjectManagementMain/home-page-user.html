@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
     <title>C-OIS Scholar Online Login</title>
     <link
       rel="stylesheet"
@@ -15,15 +21,16 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="style-sheets/home-page-user.css" />
   </head>
   <body>
-    <section class="side">
+    <section class="side-part-content">
       <img src="image-source/icon-brand.svg" alt="" />
     </section>
 
     <section class="main">
-      <div class="login-container">
+      <div class="user-login-container">
         <section class="logo-source">
           <img src="image-source/logo-source-a.svg" alt="" />
         </section>
@@ -31,13 +38,13 @@
         <div class="separator"></div>
         <p class="welcome-message">Login to your Account</p>
 
-        <form class="login-form">
-          <div class="form-control">
+        <form class="login-form" id="loginForm">
+          <div class="user-form-control">
             <input type="text" placeholder="Email" id="userEmail" required />
             <i class="fas fa-user"></i>
           </div>
 
-          <div class="form-control">
+          <div class="user-form-control">
             <input
               type="password"
               placeholder="Password"
@@ -47,30 +54,80 @@
             <i class="fas fa-lock"></i>
           </div>
 
-          <button class="submit" value="login" id="userLogin">Login</button>
+          <button class="submit" type="submit">Login</button>
         </form>
+
         <a href="home-page-admin.html"
           ><p class="admin-link">Administrator Here</p></a
         >
       </div>
     </section>
 
+    <!-- Bootstrap modal for invalid credentials -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Invalid Credentials
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Please check your email and password and try again.</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const userEmail = "sample@company.com";
         const userPassword = "password";
-        const loginButton = document.getElementById("userLogin");
+        const loginForm = document.getElementById("loginForm");
 
-        loginButton.addEventListener("click", function (event) {
+        loginForm.addEventListener("submit", function (event) {
           event.preventDefault();
 
           const enteredEmail = document.getElementById("userEmail").value;
           const enteredPassword = document.getElementById("userPassword").value;
 
           if (enteredEmail === userEmail && enteredPassword === userPassword) {
-            window.location.href = "dashboard-sample.html";
+            window.location.href = "../user-page/user-dashboard-main.html";
           } else {
-            alert("Invalid credentials. Please try again.");
+            // Show the Bootstrap modal for invalid credentials
+            const modal = new bootstrap.Modal(
+              document.getElementById("exampleModal")
+            );
+            modal.show();
           }
         });
       });
