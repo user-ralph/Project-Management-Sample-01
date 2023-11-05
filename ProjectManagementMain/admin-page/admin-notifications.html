@@ -17,18 +17,18 @@
     <link rel="stylesheet" href="../style-sheets/user-main-page.css" />
     <link rel="icon" href="../image-source/set-web-icon.png" />
 
-    <title>COIS - Browse Service</title>
+    <title>COIS - Notifications</title>
   </head>
   <body>
     <nav class="navbar">
-      <h4 class="page-title">Scholar Access</h4>
+      <h4 class="page-title">Admin Access</h4>
       <div class="profile">
         <input type="text" placeholder="Search..." id="user-search" />
         <i class="bx bx-search"></i>
         <div class="dropdown">
           <a
             class="btn btn-secondary dropdown-toggle"
-            href="user-dashboard-main.html"
+            href="#"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -38,11 +38,11 @@
               src="../image-source/student-icon.png"
               alt=""
             />
-            Scholar Tab
+            Admin Tab
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item" href="user-scholar-status.html"
+              <a class="dropdown-item" href="admin-scholar-status.html"
                 >Scholar Status</a
               >
             </li>
@@ -61,25 +61,25 @@
       <div class="sidebar-content">
         <ul class="lists">
           <li class="list">
-            <a href="user-dashboard-main.html" class="nav-link">
+            <a href="admin-dashboard-main.html" class="nav-link">
               <i class="bx bxs-dashboard icon"></i>
               <span class="link">Dashboard</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-scholar-status.html" class="nav-link">
+            <a href="admin-scholar-status.html" class="nav-link">
               <i class="bx bxs-user-account icon"></i>
               <span class="link">Scholar Status</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-notification.html" class="nav-link">
+            <a href="admin-connect-admin.html" class="nav-link">
               <i class="bx bx-notification icon"></i>
               <span class="link">Notifications</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-browse-service.html" class="nav-link">
+            <a href="admin-browse-service.html" class="nav-link">
               <i class="bx bx-category icon"></i>
               <span class="link">Browse Service</span>
             </a>
@@ -91,15 +91,9 @@
             </a>
           </li>
           <li class="list">
-            <a href="user-upload-attachments.html" class="nav-link">
-              <i class="bx bx-upload icon"></i>
-              <span class="link">Upload Attachments</span>
-            </a>
-          </li>
-          <li class="list">
-            <a href="user-download.html" class="nav-link">
-              <i class="bx bxs-download icon"></i>
-              <span class="link">Downlaod CSR</span>
+            <a href="admin-verify-attachments.html" class="nav-link">
+              <i class="bx bxs-select-multiple icon"></i>
+              <span class="link">Verify Attachments</span>
             </a>
           </li>
         </ul>
@@ -115,14 +109,15 @@
     </div>
 
     <main class="mt-5 pt-3">
-      <p class="user-page-title">Browse Service</p>
+      <p class="user-page-title">Notifications</p>
+
       <nav aria-label="breadcrumb" style="margin-left: 10px">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="user-dashboard-main.html">Dashboard</a>
+            <a href="admin-dashboard-main.html">Dashboard</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            Browse Service
+            Notifications
           </li>
         </ol>
       </nav>
@@ -134,81 +129,194 @@
           href="#"
           >All</a
         >
-        <a class="nav-link nav-hover-contentA" href="#">Active</a>
-        <a class="nav-link nav-hover-contentA" href="#">Inactive</a>
+        <a class="nav-link nav-hover-contentA" href="#">Rendered Service</a>
+        <a class="nav-link nav-hover-contentA" href="#">Feed</a>
         <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-      </nav>
-
-      <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-left: 1px">
-        <div class="col">
-          <div class="card admin-browse-content1">
-            <img
-              src="../image-source/rendered-service-poster1.png"
-              class="card-img-top rendered-service-poster1"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title admin-browse-title-1">#JustHere</h5>
-              <p class="card-text admin-notif-text-render">
-                #JustHere is a social media campaign that aims to raise mental
-                health awareness among Oro Scholars and social media users.
-              </p>
-
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bx bx-plus" style="font-size: 20px"></i>
+            Create Post
+          </button>
+          <ul class="dropdown-menu">
+            <li>
               <button
                 type="button"
-                id="justHereButton"
-                class="btn btn-primary admin-notif-btn-render"
+                class="dropdown-item btn btn-primary"
                 data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop-content1"
-                data-bs-content="content1"
+                data-bs-target="#createFeedPost"
               >
-                View More Details
+                Feed
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="dropdown-item btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop-createrender"
+              >
+                Rendered Service
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <nav class="row-content">
+        <div class="card admin-notif-feed">
+          <h5 class="card-header admin-notifheader-feed">Feed Post</h5>
+          <div class="card-body">
+            <h5 class="card-title admin-notif-title-feed">
+              RE: RENEWAL OF CONTRACT
+            </h5>
+            <p class="card-text">
+              Scholarship Contract Renewal is required to continue enjoying the
+              privileges granted by the City Government.
+            </p>
+            <button
+              type="button"
+              class="btn btn-primary admin-notif-btn-feed"
+              data-bs-toggle="modal"
+              data-bs-target="#feedPostButton"
+            >
+              View Details
+            </button>
+          </div>
+        </div>
+        <div class="card admin-notif-feed">
+          <h5 class="card-header admin-notifheader-render">Rendered Service</h5>
+          <div class="card-body">
+            <h5 class="card-title admin-notif-title-feed">
+              RETURN SERVICE OPPORTUNITY
+            </h5>
+            <p class="card-text">
+              #JustHere is a social media campaign that aims to raise mental
+              health awareness among Oro Scholars and social media users. This
+              campaign highlights experiences of inspiration, encouragement,
+              hope, and positivity of people who were just there for them during
+              these trying times.
+            </p>
+            <button
+              type="button"
+              class="btn btn-primary admin-notif-btn-feed"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              View Details
+            </button>
+          </div>
+        </div>
+      </nav>
+    </main>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="feedPostButton"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Feed Post</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="carouselExample" class="carousel slide">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="../image-source/adminnotif2A.jpg"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="../image-source/adminnotif2B.jpg"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="../image-source/adminnotif2C.jpg"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExample"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExample"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
               </button>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card admin-browse-content1">
-            <img
-              src="../image-source/rendered-service-poster1.png"
-              class="card-img-top rendered-service-poster1"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title admin-browse-title-1">
-                CELEBRATE HIGALAAY 🎉
-              </h5>
-              <p class="card-text admin-notif-text-render">
-                Explore the many festivities the city has to offer in lieu of
-                the month-long celebration of Higalaay Festival and share your
-                stories.
-              </p>
 
-              <button
-                type="button"
-                id="celebrateHigalaayButton"
-                class="btn btn-primary admin-notif-btn-render"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop-content1"
-                data-bs-content="content2"
-              >
-                View More Details
-              </button>
+          <div class="card border-success mb-3" style="margin: 15px">
+            <div class="card-header" style="font-weight: bold; color: #0e2b63">
+              RE: RENEWAL OF CONTRACT
             </div>
+            <div class="card-body">
+              <p class="card-text">
+                Scholarship Contract Renewal is required to continue enjoying
+                the privileges granted by the City Government.
+              </p>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
           </div>
         </div>
       </div>
-
-      <!-- Button trigger modal -->
-
-      <!-- Modal -->
-    </main>
+    </div>
 
     <!-- Feed Post Modal -->
     <!-- Modal -->
     <div
       class="modal fade modal-dialog-scrollable"
-      id="staticBackdrop-content1"
+      id="staticBackdrop"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabindex="-1"
@@ -462,9 +570,206 @@
         </div>
       </div>
     </div>
+    <!-- Rendered Service Modal -->
 
-    <!-- For Create Post -->
-    
+    <!-- Feed Service Modal -->
+
+    <!-- Create Service Modal -->
+
+    <div
+      class="modal fade"
+      id="createFeedPost"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Create Feed Post
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="mb-3">
+                <label for="adminFeedPostTitle1" class="form-label"
+                  >Feed Post Title</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="adminFeedPostTitle1"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="adminFeedPostContent1" class="form-label"
+                  >Write Your Content Here</label
+                >
+                <textarea
+                  class="form-control"
+                  id="adminFeedPostContent1"
+                  rows="6"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="formFileSm" class="form-label"
+                  >Upload Pictures</label
+                >
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="admin-create-post-button"
+            >
+              Create Post
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Rendered Service -->
+    <div
+      class="modal fade"
+      id="staticBackdrop-createrender"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Create Render Service
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Render Service Title</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                />
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >Where</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >When</span
+                >
+                <input
+                  type="datetime-local"
+                  class="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Write Your Content Here</label
+                >
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="formFileSm" class="form-label"
+                  >Upload Pictures</label
+                >
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              id="admin-create-rendered-post-button"
+              class="btn btn-primary admin-createbrowse-button"
+            >
+              Create Post
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script
@@ -472,42 +777,5 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-
-    <script>
-      const exampleModal = document.getElementById("staticBackdrop-content1");
-      const modalTitle = exampleModal.querySelector(".modal-title");
-      const modalContentTitle = exampleModal.querySelector(
-        ".admin-notif-contenttitle"
-      );
-      const modalImages = exampleModal.querySelectorAll(
-        ".content-imagesize img"
-      );
-
-      if (exampleModal) {
-        exampleModal.addEventListener("show.bs.modal", (event) => {
-          // Button that triggered the modal
-          const button = event.relatedTarget;
-          // Extract the unique identifier from data-bs-content attribute
-          const contentIdentifier = button.getAttribute("data-bs-content");
-
-          // Update the modal's content based on the identifier
-          if (contentIdentifier === "content1") {
-            modalTitle.textContent = "Rendered Service - #JustHere";
-            modalContentTitle.textContent = "#JustHere";
-            // Update image sources as needed
-            modalImages[0].src = "../image-source/adminnotif1.jpg";
-            modalImages[1].src = "../image-source/adminnotif2.jpg";
-            modalImages[2].src = "../image-source/adminnotif3.jpg";
-          } else if (contentIdentifier === "content2") {
-            modalTitle.textContent = "Rendered Service - CELEBRATE HIGALAAY 🎉";
-            modalContentTitle.textContent = "CELEBRATE HIGALAAY 🎉 ";
-            // Update image sources as needed
-            modalImages[0].src = "../image-source/adminnotif2A.jpg";
-            modalImages[1].src = "../image-source/adminnotif2B.jpg";
-            modalImages[2].src = "../image-source/adminnotif2C.jpg";
-          }
-        });
-      }
-    </script>
   </body>
 </html>

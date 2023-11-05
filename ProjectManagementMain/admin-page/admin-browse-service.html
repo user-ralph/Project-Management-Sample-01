@@ -21,7 +21,7 @@
   </head>
   <body>
     <nav class="navbar">
-      <h4 class="page-title">Scholar Access</h4>
+      <h4 class="page-title">Admin Access</h4>
       <div class="profile">
         <input type="text" placeholder="Search..." id="user-search" />
         <i class="bx bx-search"></i>
@@ -38,7 +38,7 @@
               src="../image-source/student-icon.png"
               alt=""
             />
-            Scholar Tab
+            Admin Tab
           </a>
           <ul class="dropdown-menu">
             <li>
@@ -61,25 +61,25 @@
       <div class="sidebar-content">
         <ul class="lists">
           <li class="list">
-            <a href="user-dashboard-main.html" class="nav-link">
+            <a href="admin-dashboard-main.html" class="nav-link">
               <i class="bx bxs-dashboard icon"></i>
               <span class="link">Dashboard</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-scholar-status.html" class="nav-link">
+            <a href="admin-scholar-status.html" class="nav-link">
               <i class="bx bxs-user-account icon"></i>
               <span class="link">Scholar Status</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-notification.html" class="nav-link">
+            <a href="admin-notifications.html" class="nav-link">
               <i class="bx bx-notification icon"></i>
               <span class="link">Notifications</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-browse-service.html" class="nav-link">
+            <a href="admin-browse-service.html" class="nav-link">
               <i class="bx bx-category icon"></i>
               <span class="link">Browse Service</span>
             </a>
@@ -91,15 +91,9 @@
             </a>
           </li>
           <li class="list">
-            <a href="user-upload-attachments.html" class="nav-link">
-              <i class="bx bx-upload icon"></i>
-              <span class="link">Upload Attachments</span>
-            </a>
-          </li>
-          <li class="list">
-            <a href="user-download.html" class="nav-link">
-              <i class="bx bxs-download icon"></i>
-              <span class="link">Downlaod CSR</span>
+            <a href="admin-verify-attachments.html" class="nav-link">
+              <i class="bx bxs-select-multiple icon"></i>
+              <span class="link">Verify Attachments</span>
             </a>
           </li>
         </ul>
@@ -119,7 +113,7 @@
       <nav aria-label="breadcrumb" style="margin-left: 10px">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="user-dashboard-main.html">Dashboard</a>
+            <a href="admin-dashboard-main.html">Dashboard</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
             Browse Service
@@ -137,6 +131,15 @@
         <a class="nav-link nav-hover-contentA" href="#">Active</a>
         <a class="nav-link nav-hover-contentA" href="#">Inactive</a>
         <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        <button
+          type="button"
+          class="btn btn-primary admin-browse-btn1"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop-createrender"
+        >
+          <i class="bx bx-plus" style="font-size: 20px"></i> Create Rendered
+          Service
+        </button>
       </nav>
 
       <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-left: 1px">
@@ -204,6 +207,8 @@
       <!-- Modal -->
     </main>
 
+    <!-- Feed Post Modal -->
+    <!-- Modal -->
     <!-- Feed Post Modal -->
     <!-- Modal -->
     <div
@@ -464,7 +469,112 @@
     </div>
 
     <!-- For Create Post -->
-    
+    <div
+      class="modal fade"
+      id="staticBackdrop-createrender"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Create Render Service
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Render Service Title</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                />
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >Where</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >When</span
+                >
+                <input
+                  type="datetime-local"
+                  class="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Write Your Content Here</label
+                >
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="formFileSm" class="form-label"
+                  >Upload Pictures</label
+                >
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary admin-createbrowse-button"
+            >
+              Create
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script
@@ -508,6 +618,36 @@
           }
         });
       }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const createBrowseButton = document.querySelector(
+          ".admin-createbrowse-button"
+        );
+        const cardRow = document.querySelector(
+          ".row.row-cols-1.row-cols-md-3.g-4"
+        );
+
+        createBrowseButton.addEventListener("click", function () {
+          // Create a new card element
+          const newCard = document.createElement("div");
+          newCard.className = "col";
+          newCard.innerHTML = `
+          <div class="card admin-browse-content1">
+            <img src="../image-source/rendered-service-poster3.png" class="card-img-top rendered-service-poster1" alt="...">
+            <div class="card-body">
+              <h5 class="card-title admin-browse-title-1">New Card Title</h5>
+              <p class="card-text admin-notif-text-render">This is a new card added dynamically.</p>
+              <button type="button" class="btn btn-primary admin-notif-btn-render" data-bs-toggle="modal" data-bs-target="#staticBackdrop-content1" data-bs-content="content3">View More Details</button>
+            </div>
+          </div>
+        `;
+
+          // Append the new card to the card row
+          cardRow.appendChild(newCard);
+        });
+      });
     </script>
   </body>
 </html>

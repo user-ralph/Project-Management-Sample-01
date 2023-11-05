@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Table CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
+    />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style-sheets/user-main-page.css" />
+    <link rel="icon" href="../image-source/set-web-icon.png" />
+
+    <title>COIS - Scholar Status</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <h4 class="page-title">Admin Access</h4>
+      <div class="profile">
+        <input type="text" placeholder="Search..." id="user-search" />
+        <i class="bx bx-search"></i>
+        <div class="dropdown">
+          <a
+            class="btn btn-secondary dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              class="profile-image"
+              src="/image-source/student-icon.png"
+              alt=""
+            />
+            Admin Tab
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="user-scholar-status.html"
+                >Scholar Status</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="../home-page-user.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <input type="checkbox" id="toggle" />
+    <label for="toggle" class="side-toggle"><i class="bx bx-menu"></i></label>
+
+    <div class="sidebar">
+      <div class="sidebar-content">
+        <ul class="lists">
+          <li class="list">
+            <a href="admin-dashboard-main.html" class="nav-link">
+              <i class="bx bxs-dashboard icon"></i>
+              <span class="link">Dashboard</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" class="nav-link">
+              <i class="bx bxs-user-account icon"></i>
+              <span class="link">Scholar Status</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="admin-notifications.html" class="nav-link">
+              <i class="bx bx-notification icon"></i>
+              <span class="link">Notifications</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="admin-browse-service.html" class="nav-link">
+              <i class="bx bx-category icon"></i>
+              <span class="link">Browse Service</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="user-connect-admin.html" class="nav-link">
+              <i class="bx bx-message-edit icon"></i>
+              <span class="link">Connect Admin</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="admin-verify-attachments.html" class="nav-link">
+              <i class="bx bxs-select-multiple icon"></i>
+              <span class="link">Verify Attachments</span>
+            </a>
+          </li>
+        </ul>
+        <div class="bottom-content">
+          <li class="list-bottom">
+            <a href="../home-page-user.html" class="nav-link">
+              <i class="bx bx-log-out icon"></i>
+              <span class="link">Logout</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <p class="user-page-title">Scholar Status</p>
+      <nav aria-label="breadcrumb" style="margin-left: 10px">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="admin-dashboard-main.html">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Scholar Status
+          </li>
+        </ol>
+      </nav>
+
+      <div class="card mb-4" style="margin-left: 10px">
+        <div class="card-header">
+          <i class="bx bx-table"></i>
+          All Scholar List
+        </div>
+        <div class="card-body">
+          <table class="table table-hover table-bordered" id="example">
+            <thead>
+              <tr>
+                <th>Scholar Name</th>
+                <th>School</th>
+                <th>Program</th>
+                <th>Year Level</th>
+                <th>School Year</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <!-- <tfoot>
+              <tr>
+                <th>Scholar Name</th>
+                <th>School</th>
+                <th>Program</th>
+                <th>Year Level</th>
+                <th>School Year</th>
+                <th>Status</th>
+              </tr>
+            </tfoot> -->
+            <tbody>
+              <tr>
+                <td>Tiger Nixon</td>
+                <td>USTP - CDO</td>
+                <td>BS in Computer Engineering</td>
+                <td>First Year</td>
+                <td>2021-2022</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>Garrett Winters</td>
+                <td>USTP - CDO</td>
+                <td>BS in Computer Engineering</td>
+                <td>First Year</td>
+                <td>2021-2022</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>Ashton Cox</td>
+                <td>USTP - CDO</td>
+                <td>BS in Computer Engineering</td>
+                <td>First Year</td>
+                <td>2021-2022</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>Cedric Kelly</td>
+                <td>USTP - CDO</td>
+                <td>BS in Computer Engineering</td>
+                <td>First Year</td>
+                <td>2021-2022</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>Airi Satou</td>
+                <td>USTP - CDO</td>
+                <td>BS in Computer Engineering</td>
+                <td>Second Year</td>
+                <td>2021-2022</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>Brielle Williamson</td>
+                <td>USTP - CDO</td>
+                <td>BS in Computer Engineering</td>
+                <td>Second Year</td>
+                <td>2021-2022</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>Herrod Chandler</td>
+                <td>USTP - CDO</td>
+                <td>BS in Computer Engineering</td>
+                <td>Second Year</td>
+                <td>2021-2022</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>Rhona Davidson</td>
+                <td>USTP - CDO</td>
+                <td>BS in Computer Engineering</td>
+                <td>Second Year</td>
+                <td>2021-2022</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>Colleen Hurst</td>
+                <td>USTP - CDO</td>
+                <td>BS in Computer Engineering</td>
+                <td>Second Year</td>
+                <td>2021-2022</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>Sonya Frost</td>
+                <td>USTP - CDO</td>
+                <td>BS in Computer Engineering</td>
+                <td>Third Year</td>
+                <td>2021-2022</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>Jena Gaines</td>
+                <td>USTP - CDO</td>
+                <td>BS in Computer Engineering</td>
+                <td>Third Year</td>
+                <td>2021-2022</td>
+                <td>Active</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row" style="margin-left: 10px">
+        <button
+          type="button"
+          class="btn btn-outline-primary admin-print-button1"
+          style="margin-right: 15px; margin-bottom: 5px"
+        >
+          <i class="bx bx-printer"></i> Print all Scholar List
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary admin-print-button2"
+        >
+          <i class="bx bx-printer"></i> Print all Active List
+        </button>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../backend-scripts/sampledata.js "></script>
+  </body>
+</html>
