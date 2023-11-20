@@ -46,15 +46,13 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item" href="user-scholar-status.html"
-                >Scholar Status</a
-              >
+              <a class="dropdown-item" id="scholarstatuslink">Scholar Status</a>
             </li>
             <li>
-              <a class="dropdown-item" href="../home-page-user.html">Logout</a>
+              <a class="dropdown-item" href="../home-page-user.html?${userId}">Logout</a>
             </li>
           </ul>
-        </div>
+        </div>   
       </div>
     </nav>
 
@@ -65,43 +63,43 @@
       <div class="sidebar-content">
         <ul class="lists">
           <li class="list">
-            <a href="user-dashboard-main.html" class="nav-link">
+            <a class="nav-link" id="dashboardlink">
               <i class="bx bxs-dashboard icon"></i>
               <span class="link">Dashboard</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-scholar-status.html" class="nav-link">
-              <i class="bx bxs-user-account icon"></i>
+            <a class="nav-link" id="ScholarStatuslink">
+              <i class="bx bxs-dashboard icon"></i>
               <span class="link">Scholar Status</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-notification.html" class="nav-link">
+            <a class="nav-link" id="notificationLink">
               <i class="bx bx-notification icon"></i>
               <span class="link">Notifications</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-browse-service.html" class="nav-link">
+            <a class="nav-link" id="BrowseServicelink">
               <i class="bx bx-category icon"></i>
               <span class="link">Browse Service</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-connect-admin.html" class="nav-link">
+            <a class="nav-link" id="ConnectAdminlink">
               <i class="bx bx-message-edit icon"></i>
               <span class="link">Connect Admin</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-upload-attachments.html" class="nav-link">
+            <a class="nav-link" id="UploadAttachmentslink">
               <i class="bx bx-upload icon"></i>
               <span class="link">Upload Attachments</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-download.html" class="nav-link">
+            <a  class="nav-link" id="DownlaodCSRlink">
               <i class="bx bxs-download icon"></i>
               <span class="link">Downlaod CSR</span>
             </a>
@@ -109,7 +107,7 @@
         </ul>
         <div class="bottom-content">
           <li class="list-bottom">
-            <a href="../home-page-user.html" class="nav-link">
+            <a href="../home-page-user.html?${userId}" class="nav-link">
               <i class="bx bx-log-out icon"></i>
               <span class="link">Logout</span>
             </a>
@@ -142,12 +140,12 @@
                   </p>
 
                   <a
-                    href="user-scholar-status.html"
                     class="btn btn-sm btn-outline-primary user-welcome"
+                    id="scholarstatuslink"
                     >View Status</a
                   >
                   <a
-                    href="user-browse-service.html"
+                    id="ViewRenderedServiceslink"
                     class="btn btn-sm btn-outline-primary user-welcome"
                     >View Rendered Services</a
                   >
@@ -175,14 +173,16 @@
               <h5
                 class="card-title"
                 style="font-size: 24.1px; font-weight: 600"
+                
               >
+              
                 Upload Attachments
               </h5>
               <p class="card-text" style="font-size: 14px">
                 Verify and upload your requirement for scholarship renewal.
               </p>
               <a
-                href="user-upload-attachments.html"
+                id="UploadAttachmentslink"
                 class="btn btn-primary user-first-row-button"
                 style="margin: 4px"
                 >View to Upload <i class="bx bx-upload user-main-icon"></i>
@@ -206,7 +206,7 @@
                 Check your status and download your Certificate of Enrollment.
               </p>
               <a
-                href="user-download.html"
+                id="DownlaodCSRlink"
                 class="btn btn-primary user-first-row-button"
                 style="margin: 4px"
                 >View to Download <i class="bx bxs-download user-main-icon"></i>
@@ -228,7 +228,7 @@
             >
               <a
                 class="small text-white stretched-link"
-                href="user-notification.html"
+                id="notificationLink"   
                 >View Details</a
               >
               <div class="small text-white">
@@ -248,7 +248,7 @@
             >
               <a
                 class="small text-white stretched-link"
-                href="user-browse-service.html"
+                href="user-browse-service.html?${userId}"
                 >View Details</a
               >
               <div class="small text-white">
@@ -257,7 +257,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-3 col-md-6" id="ScholarStatuslink">
           <div class="card mb-4" style="background-color: #ffb703">
             <div class="card-body" style="color: #fff">
               Scholar Status <i class="bx bxs-user-account icon-in"></i>
@@ -267,7 +267,6 @@
             >
               <a
                 class="small text-white stretched-link"
-                href="user-scholar-status.html"
                 >View Details</a
               >
               <div class="small text-white">
@@ -286,7 +285,7 @@
             >
               <a
                 class="small text-white stretched-link"
-                href="user-connect-admin.html"
+                href="user-connect-admin.html?${userId}"
                 >View Details</a
               >
               <div class="small text-white">
@@ -324,5 +323,52 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+    
+      var userId = getUrlParameter('uid');
+    
+      console.log('User ID:', userId); 
+      var notificationLink = document.getElementById('notificationLink');
+      var dashboardlink = document.getElementById('dashboardlink');
+      var ScholarStatuslink = document.getElementById('ScholarStatuslink');
+      var BrowseServicelink = document.getElementById('BrowseServicelink');
+      var ConnectAdminlink = document.getElementById('ConnectAdminlink');
+      var UploadAttachmentslink = document.getElementById('UploadAttachmentslink');
+      var DownlaodCSRlink = document.getElementById('DownlaodCSRlink');
+      var ViewRenderedServiceslink = document.getElementById('ViewRenderedServiceslink');
+    
+
+      if (userId && ScholarStatuslink) {
+        ScholarStatuslink.href = 'user-scholar-status.html?uid=' + userId;
+      }
+      if (userId && notificationLink) {
+        notificationLink.href = 'user-notification.html?uid=' + userId;
+      }
+      if (userId && dashboardlink) {
+        dashboardlink.href = 'user-dashboard-main.html?uid=' + userId;
+      }
+      if (userId && BrowseServicelink) {
+        BrowseServicelink.href = 'user-browse-service.html?uid=' + userId;
+      }
+      if (userId && ConnectAdminlink) {
+        ConnectAdminlink.href = 'user-connect-admin.html?uid=' + userId;
+      }
+      if (userId && UploadAttachmentslink) {
+        UploadAttachmentslink.href = 'user-upload-attachments.html?uid=' + userId;
+      }
+      if (userId && DownlaodCSRlink) {
+        DownlaodCSRlink.href = 'user-download.html?uid=' + userId;
+      }
+      if (userId && ViewRenderedServiceslink) {
+        ViewRenderedServiceslink.href = 'user-view-rendered-services.html?uid=' + userId;
+      }
+    </script>
   </body>
 </html>

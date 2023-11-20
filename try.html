@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change HTML Element Content</title>
+</head>
+<body>
+
+  <ul>
+    <li class="list-group-item">
+      Year Level:
+      <span class="user-profile-decorate user-scholar-yearlevel"
+        id="yearLevel">First Year</span>
+    </li>
+  </ul>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the span element by its ID
+      var yearLevelSpan = document.getElementById('yearLevel');
+
+      // Change the text content to a variable
+      var newYearLevel = 'Third Year';
+      yearLevelSpan.textContent = newYearLevel;
+    });
+  </script>
+
+</body>
+</html>

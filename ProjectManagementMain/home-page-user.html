@@ -60,7 +60,7 @@
           </button>
         </form>
 
-        <a href="/admin-page/home-page-admin.html"
+        <a href="home-page-admin.html"
           ><p class="admin-link">Administrator Here</p></a
         >
       </div>
@@ -142,26 +142,28 @@
           const enteredEmail = document.getElementById("userEmail").value;
           const enteredPassword = document.getElementById("userPassword").value;
 
-          // Use Firebase's signInWithEmailAndPassword
           signInWithEmailAndPassword(auth, enteredEmail, enteredPassword)
-            .then((userCredential) => {
-              // Signed in, you can redirect the user or perform other actions
-              const user = userCredential.user;
-              window.location.href = "user-page/user-dashboard-main.html";
-            })
-            .catch((error) => {
-              // Handle authentication errors
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              // You can display an error message to the user if needed
-              console.error(errorMessage);
+        .then((userCredential) => {
+          // Extract the UID after successful login
+          const user = userCredential.user;
+          const userId = user.uid; // Get the UID
+          alert(userId);
 
-              // Show the Bootstrap modal for invalid credentials
-              const modal = new bootstrap.Modal(
-                document.getElementById("exampleModal")
-              );
-              modal.show();
-            });
+          // Redirect to user-dashboard-main.html with the UID as a query parameter
+          window.location.href = `user-page/user-dashboard-main.html?uid=${userId}`;
+        })
+        .catch((error) => {
+          // Handle authentication errors
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.error(errorMessage);
+
+          // Show the Bootstrap modal for invalid credentials
+          const modal = new bootstrap.Modal(
+            document.getElementById("exampleModal")
+          );
+          modal.show();
+          });
         });
       });
     </script>
