@@ -25,7 +25,7 @@
   </head>
   <body>
     <nav class="navbar">
-      <h4 class="page-title">Scholar Access</h4>
+      <h4 class="page-title">Admin Access</h4>
       <div class="profile">
         <input type="text" placeholder="Search..." id="user-search" />
         <i class="bx bx-search"></i>
@@ -42,11 +42,11 @@
               src="../image-source/student-icon.png"
               alt=""
             />
-            Scholar Tab
+            Admin Tab
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item" href="user-scholar-status.html"
+              <a class="dropdown-item" href="admin-scholar-status.html"
                 >Scholar Status</a
               >
             </li>
@@ -65,45 +65,39 @@
       <div class="sidebar-content">
         <ul class="lists">
           <li class="list">
-            <a href="user-dashboard-main.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="bx bxs-dashboard icon"></i>
               <span class="link">Dashboard</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-scholar-status.html" class="nav-link">
+            <a href="admin-scholar-status.html" class="nav-link">
               <i class="bx bxs-user-account icon"></i>
               <span class="link">Scholar Status</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-notification.html" class="nav-link">
+            <a href="admin-notifications.html" class="nav-link">
               <i class="bx bx-notification icon"></i>
               <span class="link">Notifications</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-browse-service.html" class="nav-link">
+            <a href="admin-browse-service.html" class="nav-link">
               <i class="bx bx-category icon"></i>
               <span class="link">Browse Service</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-connect-admin.html" class="nav-link">
+            <a href="../admin-page/admin-connect-admin.html" class="nav-link">
               <i class="bx bx-message-edit icon"></i>
               <span class="link">Connect Admin</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-upload-attachments.html" class="nav-link">
-              <i class="bx bx-upload icon"></i>
-              <span class="link">Upload Attachments</span>
-            </a>
-          </li>
-          <li class="list">
-            <a href="user-download.html" class="nav-link">
-              <i class="bx bxs-download icon"></i>
-              <span class="link">Downlaod CSR</span>
+            <a href="admin-verify-attachments.html" class="nav-link">
+              <i class="bx bxs-select-multiple icon"></i>
+              <span class="link">Verify Attachments</span>
             </a>
           </li>
         </ul>
@@ -124,32 +118,33 @@
         <!-- <div class="dash-line"></div> -->
       </p>
 
-      <div class="row">
-        <div class="col-lg-6 mb-3 order-0">
+      <div class="row" style="margin-bottom: 5px">
+        <div class="col-lg-5 mb-2 w-50">
           <div class="card">
             <div class="d-flex row">
-              <div class="col-sm-7">
+              <div class="col-sm-6">
                 <div class="card-body">
                   <h5
                     class="card-title"
                     style="color: #0e2b63; font-weight: 600"
                   >
-                    Welcome Scholar!
+                    Welcome Admin!
                   </h5>
                   <p class="mb-3" style="color: #0e2b63; font-size: 16px">
-                    You may view your scholarship status or access service
+                    You may view the scholarship status or access service
                     opportunities.
                   </p>
 
                   <a
-                    href="user-scholar-status.html"
+                    href="admin-scholar-status.html"
                     class="btn btn-sm btn-outline-primary user-welcome"
                     >View Status</a
                   >
                   <a
-                    href="user-browse-service.html"
+                    href="#"
                     class="btn btn-sm btn-outline-primary user-welcome"
-                    >View Rendered Services</a
+                    style="margin-top: 5px"
+                    >Rendered Services</a
                   >
                 </div>
               </div>
@@ -166,58 +161,49 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-md-6">
-          <div
-            class="card text-center mb-3 user-main-card"
-            style="position: relative"
-          >
-            <div class="card-body">
-              <h5
-                class="card-title"
-                style="font-size: 24.1px; font-weight: 600"
-              >
-                Upload Attachments
-              </h5>
-              <p class="card-text" style="font-size: 14px">
-                Verify and upload your requirement for scholarship renewal.
-              </p>
-              <a
-                href="user-upload-attachments.html"
-                class="btn btn-primary user-first-row-button"
-                style="margin: 4px"
-                >View to Upload <i class="bx bx-upload user-main-icon"></i>
-              </a>
-            </div>
+
+        <div
+          class="card text-center mb-4 admin-dashboard-card1"
+          style="max-width: 16rem; margin-right: 18px"
+        >
+          <div class="card-body">
+            <h5 class="card-title" style="font-weight: bold">
+              Verify Attachment
+            </h5>
+            <i class="bx bxs-select-multiple admin-dashboard-icon1"></i>
+            <p class="card-text" style="font-size: 16px; margin-top: 5px">
+              View to verify attachments for scholarship renewal
+            </p>
+            <a
+              class="btn btn-primary admin-dashboard-button1"
+              href="admin-verify-attachments.html"
+              role="button"
+              >View Attachments</a
+            >
           </div>
         </div>
-        <div class="col-xl-3 col-md-6">
-          <div
-            class="card text-center mb-3 user-main-card"
-            style="position: relative"
-          >
-            <div class="card-body">
-              <h5
-                class="card-title"
-                style="font-size: 24.1px; font-weight: 600"
-              >
-                Download CSR
-              </h5>
-              <p class="card-text" style="font-size: 14px">
-                Check your status and download your Certificate of Enrollment.
-              </p>
-              <a
-                href="user-download.html"
-                class="btn btn-primary user-first-row-button"
-                style="margin: 4px"
-                >View to Download <i class="bx bxs-download user-main-icon"></i>
-              </a>
-            </div>
+        <div
+          class="card text-center mb-4 admin-dashboard-card1"
+          style="max-width: 16rem; margin-right: 18px"
+        >
+          <div class="card-body">
+            <h5 class="card-title" style="font-weight: bold">Connect Admin</h5>
+            <i class="bx bx-comment-detail admin-dashboard-icon1"></i>
+            <p class="card-text" style="font-size: 16px; margin-top: 5px">
+              View to connect with scholarship inquiry
+            </p>
+            <a
+              class="btn btn-primary admin-dashboard-button1"
+              href="#"
+              role="button"
+              >Visit to Connect</a
+            >
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-6">
           <div class="card mb-4" style="background-color: #ffb703">
             <div class="card-body text-white">
               Notifications
@@ -228,7 +214,7 @@
             >
               <a
                 class="small text-white stretched-link"
-                href="user-notification.html"
+                href="admin-notifications.html"
                 >View Details</a
               >
               <div class="small text-white">
@@ -237,7 +223,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-6">
           <div class="card mb-4" style="background-color: #ffb703">
             <div class="card-body text-white">
               Browse Services
@@ -248,7 +234,7 @@
             >
               <a
                 class="small text-white stretched-link"
-                href="user-browse-service.html"
+                href="admin-browse-service.html"
                 >View Details</a
               >
               <div class="small text-white">
@@ -257,7 +243,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-6">
           <div class="card mb-4" style="background-color: #ffb703">
             <div class="card-body" style="color: #fff">
               Scholar Status <i class="bx bxs-user-account icon-in"></i>
@@ -267,26 +253,7 @@
             >
               <a
                 class="small text-white stretched-link"
-                href="user-scholar-status.html"
-                >View Details</a
-              >
-              <div class="small text-white">
-                <i class="bx bx-chevron-right"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-md-6">
-          <div class="card mb-4" style="background-color: #ffb703">
-            <div class="card-body" style="color: #fff">
-              Connect Admin <i class="bx bx-message-edit icon-in"></i>
-            </div>
-            <div
-              class="card-footer d-flex align-items-center justify-content-between"
-            >
-              <a
-                class="small text-white stretched-link"
-                href="user-connect-admin.html"
+                href="admin-scholar-status.html"
                 >View Details</a
               >
               <div class="small text-white">
@@ -297,26 +264,7 @@
         </div>
       </div>
 
-      <div class="row" style="margin: 3px">
-        <div class="card text-center">
-          <div
-            class="card-header"
-            style="font-size: medium; font-weight: bold; color: #0e2b63"
-          >
-            Know Your Responsibility as a Scholar
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Review your Requirement and Obligations</h5>
-            <a
-              href="#"
-              class="btn btn-primary"
-              style="background-color: #0e2b63"
-              >View More Details</a
-            >
-          </div>
-          <div class="card-footer text-body-secondary">2 days ago</div>
-        </div>
-      </div>
+      <div class="row" style="margin: 3px"></div>
     </main>
 
     <script
