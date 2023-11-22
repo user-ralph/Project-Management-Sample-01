@@ -136,6 +136,15 @@
         <div class="card-header">
           <i class="bx bx-table"></i>
           All Scholar List
+          <button
+            type="button"
+            class="btn btn-secondary-add-admin-button"
+            style="margin-left: 10px"
+            data-bs-toggle="modal"
+            data-bs-target="#adminAddScholarList"
+          >
+            <i class="bx bx-add-to-queue"></i> Add Scholar
+          </button>
         </div>
         <div class="card-body">
           <table class="table table-hover table-bordered" id="scholarTable">
@@ -159,12 +168,13 @@
 
       <div class="row" style="margin-left: 10px">
         <button
-          type="button"
-          class="btn btn-outline-primary admin-print-button1"
-          style="margin-right: 15px; margin-bottom: 5px"
-        >
-          <i class="bx bx-printer"></i> Print all Scholar List
-        </button>
+        type="button"
+        class="btn btn-outline-primary admin-print-button1"
+        style="margin-right: 15px; margin-bottom: 5px"
+        id="generatePDF"
+      >
+        <i class="bx bx-printer"></i> Print all Scholar List
+      </button>
         <button
           type="button"
           class="btn btn-outline-primary admin-print-button2"
@@ -176,141 +186,151 @@
 
  <!-- Modal -->
     <div
-      class="modal fade"
-      id="adminAddScholarList"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
+    class="modal fade"
+    id="adminAddScholarList"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
     >
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">
-              <i class="bx bxs-user-detail"></i> Add Scholar
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form action="">
-              <label for="exampleInputEmail1" class="form-label"
-                >Email address</label
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            <i class="bx bxs-user-detail"></i> Add Scholar
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form id="scholarForm">
+        <div class="modal-body">
+          <form action="">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              style="margin-bottom: 10px"
+            />
+
+            <!-- Margin -->
+            <div class="input-group">
+              <span class="input-group-text">Full Name</span>
+              <input
+                type="text"
+                aria-label="First name"
+                id="firstname"
+                class="form-control"
+                placeholder="First Name"
+              />
+              <input
+                type="text"
+                aria-label="Last name"
+                id="lastname"
+                class="form-control"
+                placeholder="Last Name"
+              />
+              <input
+                type="text"
+                aria-label="Last name"
+                class="form-control"
+                placeholder="Middle Name"
+                id="middlename"
+              />
+            </div>
+
+            <!-- Program -->
+            <div class="input-group flex-nowrap" style="margin-top: 10px">
+              <span class="input-group-text" id="addon-wrapping"
+                >Program</span
               >
               <input
-                type="email"
+                type="text"
                 class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                style="margin-bottom: 10px"
+                placeholder="BS in Computer Engineering"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+                id="program"
               />
+            </div>
 
-              <!-- Margin -->
-              <div class="input-group">
-                <span class="input-group-text">Full Name</span>
-                <input
-                  type="text"
-                  aria-label="First name"
-                  class="form-control"
-                  placeholder="First Name"
-                />
-                <input
-                  type="text"
-                  aria-label="Last name"
-                  class="form-control"
-                  placeholder="Last Name"
-                />
-                <input
-                  type="text"
-                  aria-label="Last name"
-                  class="form-control"
-                  placeholder="Middle Name"
-                />
-              </div>
+            <!-- School -->
+            <div class="input-group flex-nowrap" style="margin-top: 10px">
+              <span class="input-group-text" id="addon-wrapping">School</span>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+                id="school"
+              />
+            </div>
 
-              <!-- Program -->
-              <div class="input-group flex-nowrap" style="margin-top: 10px">
-                <span class="input-group-text" id="addon-wrapping"
-                  >Program</span
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="BS in Computer Engineering"
-                  aria-label="Username"
-                  aria-describedby="addon-wrapping"
-                />
-              </div>
+            <!-- School Year  -->
+            <div class="input-group flex-nowrap" style="margin-top: 10px">
+              <span class="input-group-text" id="addon-wrapping"
+                >School Year</span
+              >
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+                id="schoolYear"
+              />
+            </div>
 
-              <!-- School -->
-              <div class="input-group flex-nowrap" style="margin-top: 10px">
-                <span class="input-group-text" id="addon-wrapping">School</span>
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="Username"
-                  aria-describedby="addon-wrapping"
-                />
-              </div>
+            <!-- School Year -->
+            <div class="input-group flex-nowrap" style="margin-top: 10px">
+              <span class="input-group-text" id="addon-wrapping"
+                >Year Level</span
+              >
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+                id="yearLevel"
+              />
+            </div>
 
-              <!-- School Year  -->
-              <div class="input-group flex-nowrap" style="margin-top: 10px">
-                <span class="input-group-text" id="addon-wrapping"
-                  >School Year</span
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="Username"
-                  aria-describedby="addon-wrapping"
-                />
-              </div>
+            <!-- Status -->
+            <div class="input-group flex-nowrap" style="margin-top: 10px">
+              <span class="input-group-text" id="addon-wrapping">Status</span>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+                id="status"
+              />
+            </div>
 
-              <!-- School Year -->
-              <div class="input-group flex-nowrap" style="margin-top: 10px">
-                <span class="input-group-text" id="addon-wrapping"
-                  >Year Level</span
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="Username"
-                  aria-describedby="addon-wrapping"
-                />
-              </div>
-
-              <!-- Status -->
-              <div class="input-group flex-nowrap" style="margin-top: 10px">
-                <span class="input-group-text" id="addon-wrapping">Status</span>
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="Username"
-                  aria-describedby="addon-wrapping"
-                />
-              </div>
-
-              <button type="submit" class="btn admin-submit-button">
-                <i class="bx bx-user-plus" style="font-size: 1.2rem"></i> Add
-              </button>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
+            <button type="submit" class="btn admin-submit-button">
+              <i class="bx bx-user-plus" style="font-size: 1.2rem"></i> Add
             </button>
-          </div>
+          </form>
         </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </form>
       </div>
+    </div>
     </div>
 
     <script
@@ -318,16 +338,24 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-
+    
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     <script src="../backend-scripts/sampledata.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.2.11/dist/jspdf.plugin.autotable.min.js"></script>
+    
 
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
       import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
       import {getDatabase, set, ref, child, onValue, get} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+ 
+
+
+
 
     // Initialize Firebase
     const firebaseConfig = {
@@ -398,13 +426,12 @@
     });
   });
 
-  const tableBody = document.getElementById('tableBody');
-
-// Fetch data from Firebase collection (assuming 'scholars' is your collection)
-      
   document.addEventListener("DOMContentLoaded", function () {
+    const tableBody = document.getElementById('tableBody');
+
     // Fetch data from Firebase collection (assuming 'users' is your collection)
     const usersRef = ref(database, 'users');
+
     get(usersRef)
       .then((snapshot) => {
         if (snapshot.exists()) {
@@ -422,6 +449,13 @@
             `;
             tableBody.appendChild(row);
           });
+
+          // Initialize DataTables
+          $('#scholarTable').DataTable({
+            "order": [[0, "asc"]], // Sort by the first column (Scholar Name)
+            "paging": true, // Enable pagination
+            "searching": true // Enable search functionality
+          });
         } else {
           console.log("No data available");
         }
@@ -429,7 +463,37 @@
       .catch((error) => {
         console.error("Error fetching documents: ", error);
       });
+
+
+      function generatePDF() {
+      const doc = new jsPDF(); // Create a new PDF document
+
+      // Configure the columns and rows
+      const columns = ['Scholar Name', 'School', 'Program', 'Year Level', 'School Year', 'Status'];
+      const rows = [];
+
+      // Populate the rows from the table
+      $('#scholarTable tbody tr').each(function (index, row) {
+        const rowData = [];
+        $(row).find('td').each(function (index, column) {
+          rowData.push($(column).text());
+        });
+        rows.push(rowData);
+      });
+
+      // Set table headers and add data to the PDF using AutoTable
+      doc.autoTable({
+        head: [columns],
+        body: rows
+      });
+
+      // Save or open the PDF file
+      doc.save('scholar_data.pdf');
+    }
+
+  document.getElementById('generatePDF').addEventListener('click', generatePDF);
   });
+
 
   </script>
   </body>

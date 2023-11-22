@@ -105,53 +105,30 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-   
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-      import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
-      import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
 
-    // Initialize Firebase
-    const firebaseConfig = {
-      apiKey: "AIzaSyAXTWA8tDgh36kHxr3oiI2mdZk4xN1ExIU",
-      authDomain: "coisprojectmain.firebaseapp.com",
-      projectId: "coisprojectmain",
-      storageBucket: "coisprojectmain.appspot.com",
-      messagingSenderId: "666040501925",
-      appId: "1:666040501925:web:a53d190dbffca2ceac2f4c",
-    };
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const userEmail = "admin@company.com";
+        const userPassword = "password";
+        const loginForm = document.getElementById("loginForm");
 
-    const app = initializeApp (firebaseConfig);
-    const auth = getAuth();
-    const database = getDatabase (app);
+        loginForm.addEventListener("submit", function (event) {
+          event.preventDefault();
 
-    document.addEventListener("DOMContentLoaded", function () {
+          const enteredEmail = document.getElementById("userEmail").value;
+          const enteredPassword = document.getElementById("userPassword").value;
 
-    loginForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    var enteredEmail = document.getElementById("userEmail").value;
-    var enteredPassword = document.getElementById("userPassword").value;
-;
-    createUserWithEmailAndPassword(auth, enteredEmail, enteredPassword)
-        .then((userCredential) => {
-      // Signed in
-        const user = userCredential.user;
-        set(ref (database, 'users/' + user.uid), {
-          password: enteredPassword,
-          email: enteredEmail
-          })
-          alert('user created!');
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          alert(errorMessage);
+          if (enteredEmail === userEmail && enteredPassword === userPassword) {
+            window.location.href="admin-page/admin-dashboard-main.html";
+          } else {
+            // Show the Bootstrap modal for invalid credentials
+            const modal = new bootstrap.Modal(
+              document.getElementById("exampleModal")
+            );
+            modal.show();
+          }
         });
-  });
-});
-
-
-  </script> 
+      });
+    </script>
   </body>
 </html>
