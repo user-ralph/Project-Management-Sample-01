@@ -147,7 +147,6 @@
           // Extract the UID after successful login
           const user = userCredential.user;
           const userId = user.uid; // Get the UID
-          alert(userId);
 
           // Redirect to user-dashboard-main.html with the UID as a query parameter
           window.location.href = `user-page/user-dashboard-main.html?uid=${userId}`;

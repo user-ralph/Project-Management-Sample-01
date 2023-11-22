@@ -61,43 +61,43 @@
       <div class="sidebar-content">
         <ul class="lists">
           <li class="list">
-            <a href="user-dashboard-main.html" class="nav-link">
+            <a class="nav-link" id="dashboardlink">
               <i class="bx bxs-dashboard icon"></i>
               <span class="link">Dashboard</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-scholar-status.html" class="nav-link">
-              <i class="bx bxs-user-account icon"></i>
+            <a class="nav-link" id="ScholarStatuslink">
+              <i class="bx bxs-dashboard icon"></i>
               <span class="link">Scholar Status</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-notification.html" class="nav-link">
+            <a class="nav-link" id="notificationLink">
               <i class="bx bx-notification icon"></i>
               <span class="link">Notifications</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-browse-service.html" class="nav-link">
+            <a class="nav-link" id="BrowseServicelink">
               <i class="bx bx-category icon"></i>
               <span class="link">Browse Service</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-connect-admin.html" class="nav-link">
+            <a class="nav-link" id="ConnectAdminlink">
               <i class="bx bx-message-edit icon"></i>
               <span class="link">Connect Admin</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-upload-attachments.html" class="nav-link">
+            <a class="nav-link" id="UploadAttachmentslink">
               <i class="bx bx-upload icon"></i>
               <span class="link">Upload Attachments</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-download.html" class="nav-link">
+            <a  class="nav-link" id="DownlaodCSRlink">
               <i class="bx bxs-download icon"></i>
               <span class="link">Downlaod CSR</span>
             </a>
@@ -105,7 +105,7 @@
         </ul>
         <div class="bottom-content">
           <li class="list-bottom">
-            <a href="../home-page-user.html" class="nav-link">
+            <a href="../home-page-user.html?${userId}" class="nav-link">
               <i class="bx bx-log-out icon"></i>
               <span class="link">Logout</span>
             </a>
@@ -246,6 +246,52 @@
       });
 
       // TO delete message
+
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+    
+      var userId = getUrlParameter('uid');
+    
+      console.log('User ID:', userId); 
+      var notificationLink = document.getElementById('notificationLink');
+      var dashboardlink = document.getElementById('dashboardlink');
+      var ScholarStatuslink = document.getElementById('ScholarStatuslink');
+      var BrowseServicelink = document.getElementById('BrowseServicelink');
+      var ConnectAdminlink = document.getElementById('ConnectAdminlink');
+      var UploadAttachmentslink = document.getElementById('UploadAttachmentslink');
+      var DownlaodCSRlink = document.getElementById('DownlaodCSRlink');
+      var ViewRenderedServiceslink = document.getElementById('ViewRenderedServiceslink');
+    
+
+      if (userId && ScholarStatuslink) {
+        ScholarStatuslink.href = 'user-scholar-status.html?uid=' + userId;
+      }
+      if (userId && notificationLink) {
+        notificationLink.href = 'user-notification.html?uid=' + userId;
+      }
+      if (userId && dashboardlink) {
+        dashboardlink.href = 'user-dashboard-main.html?uid=' + userId;
+      }
+      if (userId && BrowseServicelink) {
+        BrowseServicelink.href = 'user-browse-service.html?uid=' + userId;
+      }
+      if (userId && ConnectAdminlink) {
+        ConnectAdminlink.href = 'user-connect-admin.html?uid=' + userId;
+      }
+      if (userId && UploadAttachmentslink) {
+        UploadAttachmentslink.href = 'user-upload-attachments.html?uid=' + userId;
+      }
+      if (userId && DownlaodCSRlink) {
+        DownlaodCSRlink.href = 'user-download.html?uid=' + userId;
+      }
+      if (userId && ViewRenderedServiceslink) {
+        ViewRenderedServiceslink.href = 'user-view-rendered-services.html?uid=' + userId;
+      }
+      
     </script>
   </body>
 </html>

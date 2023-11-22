@@ -339,10 +339,13 @@ main {
 }
 
 .user-profile-decorate {
-  font-size: 1rem;
-  font-weight: 800;
-  margin-bottom: 3px;
   color: #0e2b63;
+  font-weight: 700;
+}
+
+.list-group-item {
+  font-size: 0.8rem;
+  margin: 0;
 }
 
 .scholarStatus-LowerTitle {
@@ -546,6 +549,42 @@ tr {
   width: 15rem;
 }
 
+.btn-secondary-add-admin-button {
+  background-color: #0e2b63;
+  color: #ffb703;
+  border-radius: 15px;
+  border: #0e2b63;
+  width: 10rem;
+}
+
+.bx-add-to-queue {
+  font-size: 1.2em;
+}
+
+.btn-secondary-add-admin-button:hover {
+  background-color: #ffb703;
+  color: #0e2b63;
+  border-radius: 15px;
+  width: 10rem;
+}
+
+.admin-submit-button {
+  margin-top: 10px;
+  background-color: #0e2b63;
+  color: #ffb703;
+  border-radius: 15px;
+  border: #0e2b63;
+  width: 15rem;
+  flex: auto;
+}
+
+.admin-submit-button:hover {
+  background-color: #ffb703;
+  color: #0e2b63;
+  border-radius: 15px;
+  width: 15rem;
+}
+
 /* Admin Notification */
 
 .nav-hover-contentA {
@@ -693,6 +732,13 @@ tr {
   width: 80%;
   height: 80%;
   border-radius: 10px;
+}
+
+.admin-button-delete-itemrendered {
+  background-color: #9e2a2b;
+  color: #f9f7f3;
+  border-radius: 10px;
+  border: #9e2a2b;
 }
 /* Mobile Version */
 @media (max-width: 786px) {
