@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Table CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
+    />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style-sheets/user-main-page.css" />
+    <link rel="icon" href="../image-source/set-web-icon.png" />
+
+    <title>COIS - Scholar Status</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <h4 class="page-title">Admin Access</h4>
+      <div class="profile">
+        <input type="text" placeholder="Search..." id="user-search" />
+        <i class="bx bx-search"></i>
+        <div class="dropdown">
+          <a
+            class="btn btn-secondary dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              class="profile-image"
+              src="/image-source/student-icon.png"
+              alt=""
+            />
+            Admin Tab
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="user-scholar-status.html"
+                >Scholar Status</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="../home-page-user.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <input type="checkbox" id="toggle" />
+    <label for="toggle" class="side-toggle"><i class="bx bx-menu"></i></label>
+
+    <div class="sidebar">
+      <div class="sidebar-content">
+        <ul class="lists">
+          <li class="list">
+            <a href="admin-dashboard-main.html" class="nav-link">
+              <i class="bx bxs-dashboard icon"></i>
+              <span class="link">Dashboard</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" class="nav-link">
+              <i class="bx bxs-user-account icon"></i>
+              <span class="link">Scholar Status</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="admin-notifications.html" class="nav-link">
+              <i class="bx bx-notification icon"></i>
+              <span class="link">Notifications</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="admin-browse-service.html" class="nav-link">
+              <i class="bx bx-category icon"></i>
+              <span class="link">Browse Service</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="user-connect-admin.html" class="nav-link">
+              <i class="bx bx-message-edit icon"></i>
+              <span class="link">Connect Admin</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="admin-verify-attachments.html" class="nav-link">
+              <i class="bx bxs-select-multiple icon"></i>
+              <span class="link">Verify Attachments</span>
+            </a>
+          </li>
+        </ul>
+        <div class="bottom-content">
+          <li class="list-bottom">
+            <a href="../home-page-user.html" class="nav-link">
+              <i class="bx bx-log-out icon"></i>
+              <span class="link">Logout</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <p class="user-page-title">Scholar Status</p>
+      <nav aria-label="breadcrumb" style="margin-left: 10px">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="admin-dashboard-main.html">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Scholar Status
+          </li>
+        </ol>
+      </nav>
+
+      <div class="card mb-4" style="margin-left: 10px">
+        <div class="card-header">
+          <i class="bx bx-table"></i>
+          All Scholar List
+        </div>
+        <div class="card-body">
+          <table class="table table-hover table-bordered" id="scholarTable">
+            <thead>
+              <tr>
+                <th>Scholar Name</th>
+                <th>School</th>
+                <th>Program</th>
+                <th>Year Level</th>
+                <th>School Year</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- Table body will be populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <div class="row" style="margin-left: 10px">
+        <button
+          type="button"
+          class="btn btn-outline-primary admin-print-button1"
+          style="margin-right: 15px; margin-bottom: 5px"
+        >
+          <i class="bx bx-printer"></i> Print all Scholar List
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary admin-print-button2"
+        >
+          <i class="bx bx-printer"></i> Print all Active List
+        </button>
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="adminAddScholarList"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              <i class="bx bxs-user-detail"></i> Add Scholar
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form id="scholarForm">
+          <div class="modal-body">
+            <form action="">
+              <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                style="margin-bottom: 10px"
+              />
+
+              <!-- Margin -->
+              <div class="input-group">
+                <span class="input-group-text">Full Name</span>
+                <input
+                  type="text"
+                  aria-label="First name"
+                  id="firstname"
+                  class="form-control"
+                  placeholder="First Name"
+                />
+                <input
+                  type="text"
+                  aria-label="Last name"
+                  id="lastname"
+                  class="form-control"
+                  placeholder="Last Name"
+                />
+                <input
+                  type="text"
+                  aria-label="Last name"
+                  class="form-control"
+                  placeholder="Middle Name"
+                  id="middlename"
+                />
+              </div>
+
+              <!-- Program -->
+              <div class="input-group flex-nowrap" style="margin-top: 10px">
+                <span class="input-group-text" id="addon-wrapping"
+                  >Program</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="BS in Computer Engineering"
+                  aria-label="Username"
+                  aria-describedby="addon-wrapping"
+                  id="program"
+                />
+              </div>
+
+              <!-- School -->
+              <div class="input-group flex-nowrap" style="margin-top: 10px">
+                <span class="input-group-text" id="addon-wrapping">School</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Username"
+                  aria-describedby="addon-wrapping"
+                  id="school"
+                />
+              </div>
+
+              <!-- School Year  -->
+              <div class="input-group flex-nowrap" style="margin-top: 10px">
+                <span class="input-group-text" id="addon-wrapping"
+                  >School Year</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Username"
+                  aria-describedby="addon-wrapping"
+                  id="schoolYear"
+                />
+              </div>
+
+              <!-- School Year -->
+              <div class="input-group flex-nowrap" style="margin-top: 10px">
+                <span class="input-group-text" id="addon-wrapping"
+                  >Year Level</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Username"
+                  aria-describedby="addon-wrapping"
+                  id="yearLevel"
+                />
+              </div>
+
+              <!-- Status -->
+              <div class="input-group flex-nowrap" style="margin-top: 10px">
+                <span class="input-group-text" id="addon-wrapping">Status</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Username"
+                  aria-describedby="addon-wrapping"
+                  id="status"
+                />
+              </div>
+
+              <button type="submit" class="btn admin-submit-button">
+                <i class="bx bx-user-plus" style="font-size: 1.2rem"></i> Add
+              </button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../backend-scripts/sampledata.js "></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+      import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+      import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXTWA8tDgh36kHxr3oiI2mdZk4xN1ExIU",
+      authDomain: "coisprojectmain.firebaseapp.com",
+      projectId: "coisprojectmain",
+      storageBucket: "coisprojectmain.appspot.com",
+      messagingSenderId: "666040501925",
+      appId: "1:666040501925:web:a53d190dbffca2ceac2f4c",
+    };
+
+    const app = initializeApp (firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase (app);
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      scholarForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+    var email = document.getElementById("exampleInputEmail1").value;
+    var firstName = document.getElementById('firstname').value;
+    var lastName = document.getElementById('lastname').value;
+    var middleName = document.getElementById('middlename').value;
+    var program = document.getElementById('program').value;
+    var school = document.getElementById('school').value;
+    var schoolYear = document.getElementById('schoolYear').value;
+    var yearLevel = document.getElementById('yearLevel').value;
+    var status = document.getElementById('status').value;
+    var password = "123456789";
+
+     // Use the values as needed (e.g., console.log or send to a server)
+    console.log("Email:", email);
+    console.log("First Name:", firstName);
+    console.log("Last Name:", lastName);
+    console.log("Middle Name:", middleName);
+    console.log("Program:", program);
+    console.log("School:", school);
+    console.log("School Year:", schoolYear);
+    console.log("Year Level:", yearLevel);
+    console.log("Status:", status);
+
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          // Store additional user data in Firebase Realtime Database
+          set(ref(database, 'users/' + user.uid), {
+            email: email,
+            firstname: firstName,
+            lastname: lastName,
+            middlename: middleName,
+            fullname: firstName + "  " + middleName + "  " + lastName,
+            program: program,
+            school: school,
+            schoolyear: schoolYear,
+            status: status,
+            yearlevel: yearLevel,
+            password: password
+          });
+
+          alert('User created!');
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage);
+        });
+    });
+  });
+
+  const tableBody = document.getElementById('tableBody');
+
+// Fetch data from Firebase collection (assuming 'scholars' is your collection)
+      
+  document.addEventListener("DOMContentLoaded", function () {
+    // Fetch data from Firebase collection (assuming 'users' is your collection)
+    const usersRef = ref(database, 'users');
+    get(usersRef)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          snapshot.forEach((childSnapshot) => {
+            const data = childSnapshot.val();
+            // Populate table rows dynamically
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td>${data.firstname} ${data.middlename} ${data.lastname}</td>
+              <td>${data.school}</td>
+              <td>${data.program}</td>
+              <td>${data.yearlevel}</td>
+              <td>${data.schoolyear}</td>
+              <td>${data.status}</td>
+            `;
+            tableBody.appendChild(row);
+          });
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching documents: ", error);
+      });
+  });
+
+  </script>
+  
+  
+
+  </body>
+</html>

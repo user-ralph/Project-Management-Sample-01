@@ -174,7 +174,7 @@
       </div>
     </main>
 
-    <!-- Modal -->
+ <!-- Modal -->
     <div
       class="modal fade"
       id="adminAddScholarList"
@@ -197,7 +197,6 @@
               aria-label="Close"
             ></button>
           </div>
-          <form id="scholarForm">
           <div class="modal-body">
             <form action="">
               <label for="exampleInputEmail1" class="form-label"
@@ -217,14 +216,12 @@
                 <input
                   type="text"
                   aria-label="First name"
-                  id="firstname"
                   class="form-control"
                   placeholder="First Name"
                 />
                 <input
                   type="text"
                   aria-label="Last name"
-                  id="lastname"
                   class="form-control"
                   placeholder="Last Name"
                 />
@@ -233,7 +230,6 @@
                   aria-label="Last name"
                   class="form-control"
                   placeholder="Middle Name"
-                  id="middlename"
                 />
               </div>
 
@@ -248,7 +244,6 @@
                   placeholder="BS in Computer Engineering"
                   aria-label="Username"
                   aria-describedby="addon-wrapping"
-                  id="program"
                 />
               </div>
 
@@ -260,7 +255,6 @@
                   class="form-control"
                   aria-label="Username"
                   aria-describedby="addon-wrapping"
-                  id="school"
                 />
               </div>
 
@@ -274,7 +268,6 @@
                   class="form-control"
                   aria-label="Username"
                   aria-describedby="addon-wrapping"
-                  id="schoolYear"
                 />
               </div>
 
@@ -288,7 +281,6 @@
                   class="form-control"
                   aria-label="Username"
                   aria-describedby="addon-wrapping"
-                  id="yearLevel"
                 />
               </div>
 
@@ -300,7 +292,6 @@
                   class="form-control"
                   aria-label="Username"
                   aria-describedby="addon-wrapping"
-                  id="status"
                 />
               </div>
 
@@ -318,7 +309,6 @@
               Close
             </button>
           </div>
-        </form>
         </div>
       </div>
     </div>
@@ -337,7 +327,7 @@
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
       import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
-      import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+      import {getDatabase, set, ref, child, onValue, get} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
 
     // Initialize Firebase
     const firebaseConfig = {
@@ -442,8 +432,5 @@
   });
 
   </script>
-  
-  
-
   </body>
 </html>
