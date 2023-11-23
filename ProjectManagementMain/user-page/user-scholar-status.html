@@ -15,12 +15,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../style-sheets/user-main-page.css" />
+    <link rel="icon" href="../image-source/set-web-icon.png" />
 
-    <title>Scholar Status</title>
+    <title>COIS - Scholar Status</title>
   </head>
   <body>
     <nav class="navbar">
-      <h4 class="page-title">Dashboard</h4>
+      <h4 class="page-title">Scholar Access</h4>
       <div class="profile">
         <input type="text" placeholder="Search..." id="user-search" />
         <i class="bx bx-search"></i>
@@ -98,7 +99,7 @@
           <li class="list">
             <a href="user-download.html" class="nav-link">
               <i class="bx bxs-download icon"></i>
-              <span class="link">Downlaod COE</span>
+              <span class="link">Downlaod CSR</span>
             </a>
           </li>
         </ul>
@@ -113,88 +114,154 @@
       </div>
     </div>
 
-    <main class="mt-5 pt-3">
-      <p class="user-page-title">
-        Scholar Status
-        <!-- <div class="dash-line"></div> -->
-      </p>
+    <main>
+      <p class="user-page-title">Scholar Status</p>
+      <nav aria-label="breadcrumb" style="margin-left: 10px">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="user-dashboard-main.html">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Scholar Status
+          </li>
+        </ol>
+      </nav>
 
-      <div class="row" style="margin-left: 15px; margin-top: 20px">
-        <div class="card" style="width: 24rem; margin-right: 20px">
-          <img
-            src="/image-source/sample-avatar.jpg"
-            class="card-img-top-status"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title user-full-name">John LLoyd Cruz</h5>
-            <p class="card-text">
-              Make sure to verify all the details specified in the dashboard
-            </p>
+      <div class="row" style="margin-left: 5px">
+        <!-- For Scholar and Upload -->
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <img
+                src="/image-source/sample-avatar.jpg"
+                class="card-img-top-status"
+                alt="..."
+              />
+              <h5 class="card-title user-full-name">John LLoyd Cruz</h5>
+              <p class="card-text">
+                Make sure to verify all the details specified in the dashboard
+              </p>
+
+              <!-- Change Profile Picture -->
+              <label for="formFile" class="form-label" style="font-size: 15px"
+                >Change Profile Picture</label
+              >
+              <div class="input-group mb-3">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="inputGroupFileAddon03"
+                >
+                  Upload
+                </button>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="inputGroupFile03"
+                  aria-describedby="inputGroupFileAddon03"
+                  aria-label="Upload"
+                />
+              </div>
+            </div>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">First Year</li>
-            <li class="list-group-item">BS Computer Engineering</li>
-          </ul>
         </div>
-        <div
-          class="card"
-          style="width: 40rem; margin-top: 18px; display: inline"
-        >
-          <div class="card-header">My Scholar Information</div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              Status:
-              <span class="user-profile-decorate user-scholar-status"
-                >Active</span
-              >
-            </li>
-            <li class="list-group-item">
-              School Year:
-              <span class="user-profile-decorate user-scholar-acadyear"
-                >2021-2022</span
-              >
-            </li>
-            <li class="list-group-item">
-              First Name:
-              <span class="user-profile-decorate user-scholar-firstname"
-                >John Lloyd</span
-              >
-            </li>
-            <li class="list-group-item">
-              Middle Name:
-              <span class="user-profile-decorate user-scholar-midname"
-                >Grace</span
-              >
-            </li>
-            <li class="list-group-item">
-              Last Name:
-              <span class="user-profile-decorate user-scholar-lastname"
-                >Cruz</span
-              >
-            </li>
-            <li class="list-group-item">
-              School:
-              <span class="user-profile-decorate user-scholar-school"
-                >USTP - CDO</span
-              >
-            </li>
-            <li class="list-group-item">
-              Program:
-              <span class="user-profile-decorate user-scholar-program"
-                >BS in Computer Engineering</span
-              >
-            </li>
-            <li class="list-group-item">
-              Year Level:
-              <span class="user-profile-decorate user-scholar-yearlevel"
-                >First Year</span
-              >
-            </li>
-          </ul>
+
+        <!-- For Scholar Information -->
+        <div class="card border-success col-sm-6 mb-3 mb-sm-0">
+          <div class="card-header bg-transparent border-success">
+            My Scholar Information
+          </div>
+          <div class="card-body text-success">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                Status:
+                <span class="user-profile-decorate user-scholar-status"
+                  >Active</span
+                >
+              </li>
+              <li class="list-group-item">
+                School Year:
+                <span class="user-profile-decorate user-scholar-acadyear"
+                  >2021-2022</span
+                >
+              </li>
+              <li class="list-group-item">
+                First Name:
+                <span class="user-profile-decorate user-scholar-firstname"
+                  >John Lloyd</span
+                >
+              </li>
+              <li class="list-group-item">
+                Middle Name:
+                <span class="user-profile-decorate user-scholar-midname"
+                  >Grace</span
+                >
+              </li>
+              <li class="list-group-item">
+                Last Name:
+                <span class="user-profile-decorate user-scholar-lastname"
+                  >Cruz</span
+                >
+              </li>
+              <li class="list-group-item">
+                School:
+                <span class="user-profile-decorate user-scholar-school"
+                  >USTP - CDO</span
+                >
+              </li>
+              <li class="list-group-item">
+                Program:
+                <span class="user-profile-decorate user-scholar-program"
+                  >BS in Computer Engineering</span
+                >
+              </li>
+              <li class="list-group-item">
+                Year Level:
+                <span class="user-profile-decorate user-scholar-yearlevel"
+                  >First Year</span
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="row"></div>
+
+      <div class="row" style="margin-left: 5px; margin-top: 20px">
+        <div class="col-sm-5 col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title scholarStatus-LowerTitle">
+                Upload your Requirements
+              </h5>
+              <p class="card-text">
+                Prepare the neccesary documents for renewal
+              </p>
+              <a
+                href="user-upload-attachments.html"
+                class="btn btn-primary scholarNavigatebtn"
+                ><i class="bx bx-upload"></i> Visit Upload Page</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title scholarStatus-LowerTitle">
+                Download your Certificate
+              </h5>
+              <p class="card-text">
+                Download the Certificate as a proof for enrollment
+              </p>
+              <a
+                href="user-download.html"
+                class="btn btn-primary scholarNavigatebtn"
+                ><i class="bx bxs-download"></i> Visit Download CSR Page</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <script
