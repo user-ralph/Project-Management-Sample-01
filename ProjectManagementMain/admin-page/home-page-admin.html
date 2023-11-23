@@ -22,26 +22,26 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="style-sheets/login-page-user.css" />
-    <link rel="icon" href="image-source/set-web-icon.png" />
+    <link rel="stylesheet" href="../style-sheets/login-page-user.css" />
+    <link rel="icon" href="../image-source/set-web-icon.png" />
   </head>
   <body>
     <section class="side-part-content">
-      <img src="image-source/icon-brand.svg" alt="" />
+      <img src="../image-source/icon-brand.svg" alt="" />
     </section>
 
     <section class="main">
       <div class="user-login-container">
         <section class="logo-source">
-          <img src="image-source/logo-source-a.svg" alt="" />
+          <img src="../image-source/logo-source-a.svg" alt="" />
         </section>
-        <p class="title">Scholar Access</p>
+        <p class="title">Admin Access</p>
         <div class="separator"></div>
         <p class="welcome-message">Login to your Account</p>
 
         <form class="login-form" id="loginForm">
           <div class="user-form-control">
-            <input type="text" placeholder="Email" id="userEmail" required />
+            <input type="text" placeholder="Email" id="adminEmail" required />
             <i class="fas fa-user"></i>
           </div>
 
@@ -49,19 +49,17 @@
             <input
               type="password"
               placeholder="Password"
-              id="userPassword"
+              id="adminPassword"
               required
             />
             <i class="fas fa-lock"></i>
           </div>
 
-          <button class="submit" type="submit" id="userSubmit-button">
-            Login
-          </button>
+          <button class="submit" type="submit">Login</button>
         </form>
 
-        <a href="/admin-page/home-page-admin.html"
-          ><p class="admin-link">Administrator Here</p></a
+        <a href="../home-page-user.html"
+          ><p class="admin-link">Scholar Here</p></a
         >
       </div>
     </section>
@@ -139,15 +137,16 @@
         loginForm.addEventListener("submit", function (event) {
           event.preventDefault();
 
-          const enteredEmail = document.getElementById("userEmail").value;
-          const enteredPassword = document.getElementById("userPassword").value;
+          const enteredEmail = document.getElementById("adminEmail").value;
+          const enteredPassword =
+            document.getElementById("adminPassword").value;
 
           // Use Firebase's signInWithEmailAndPassword
           signInWithEmailAndPassword(auth, enteredEmail, enteredPassword)
             .then((userCredential) => {
               // Signed in, you can redirect the user or perform other actions
               const user = userCredential.user;
-              window.location.href = "user-page/user-dashboard-main.html";
+              window.location.href = "../admin-page/admin-dashboard-main.html";
             })
             .catch((error) => {
               // Handle authentication errors
@@ -165,7 +164,5 @@
         });
       });
     </script>
-
-    <!-- <script src="/backend-scripts/user-login-page.js"></script> -->
   </body>
 </html>

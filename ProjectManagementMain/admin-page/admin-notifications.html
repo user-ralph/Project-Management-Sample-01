@@ -21,7 +21,7 @@
   </head>
   <body>
     <nav class="navbar">
-      <h4 class="page-title">Scholar Access</h4>
+      <h4 class="page-title">Admin Access</h4>
       <div class="profile">
         <input type="text" placeholder="Search..." id="user-search" />
         <i class="bx bx-search"></i>
@@ -38,11 +38,11 @@
               src="../image-source/student-icon.png"
               alt=""
             />
-            Scholar Tab
+            Admin Tab
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item" href="/user-page/user-notification.html"
+              <a class="dropdown-item" href="admin-scholar-status.html"
                 >Scholar Status</a
               >
             </li>
@@ -61,25 +61,25 @@
       <div class="sidebar-content">
         <ul class="lists">
           <li class="list">
-            <a href="user-dashboard-main.html" class="nav-link">
+            <a href="admin-dashboard-main.html" class="nav-link">
               <i class="bx bxs-dashboard icon"></i>
               <span class="link">Dashboard</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-scholar-status.html" class="nav-link">
+            <a href="admin-scholar-status.html" class="nav-link">
               <i class="bx bxs-user-account icon"></i>
               <span class="link">Scholar Status</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-notification.html" class="nav-link">
+            <a href="admin-connect-admin.html" class="nav-link">
               <i class="bx bx-notification icon"></i>
               <span class="link">Notifications</span>
             </a>
           </li>
           <li class="list">
-            <a href="user-browse-service.html" class="nav-link">
+            <a href="admin-browse-service.html" class="nav-link">
               <i class="bx bx-category icon"></i>
               <span class="link">Browse Service</span>
             </a>
@@ -91,15 +91,9 @@
             </a>
           </li>
           <li class="list">
-            <a href="user-upload-attachments.html" class="nav-link">
-              <i class="bx bx-upload icon"></i>
-              <span class="link">Upload Attachments</span>
-            </a>
-          </li>
-          <li class="list">
-            <a href="user-download.html" class="nav-link">
-              <i class="bx bxs-download icon"></i>
-              <span class="link">Downlaod CSR</span>
+            <a href="admin-verify-attachments.html" class="nav-link">
+              <i class="bx bxs-select-multiple icon"></i>
+              <span class="link">Verify Attachments</span>
             </a>
           </li>
         </ul>
@@ -120,7 +114,7 @@
       <nav aria-label="breadcrumb" style="margin-left: 10px">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="user-dashboard-main.html">Dashboard</a>
+            <a href="admin-dashboard-main.html">Dashboard</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
             Notifications
@@ -138,6 +132,39 @@
         <a class="nav-link nav-hover-contentA" href="#">Rendered Service</a>
         <a class="nav-link nav-hover-contentA" href="#">Feed</a>
         <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bx bx-plus" style="font-size: 20px"></i>
+            Create Post
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <button
+                type="button"
+                class="dropdown-item btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#createFeedPost"
+              >
+                Feed
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="dropdown-item btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop-createrender"
+              >
+                Rendered Service
+              </button>
+            </li>
+          </ul>
+        </div>
       </nav>
 
       <nav class="row-content">
@@ -155,13 +182,13 @@
               type="button"
               class="btn btn-primary admin-notif-btn-feed"
               data-bs-toggle="modal"
-              data-bs-target="#staticBackdropFeed"
+              data-bs-target="#feedPostButton"
             >
               View Details
             </button>
           </div>
         </div>
-        <div class="card admin-notif-feed">
+        <div class="card admin-notif-render">
           <h5 class="card-header admin-notifheader-render">Rendered Service</h5>
           <div class="card-body">
             <h5 class="card-title admin-notif-title-feed">
@@ -186,6 +213,104 @@
         </div>
       </nav>
     </main>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="feedPostButton"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Feed Post</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="carouselExample" class="carousel slide">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="../image-source/adminnotif2A.jpg"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="../image-source/adminnotif2B.jpg"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="../image-source/adminnotif2C.jpg"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExample"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExample"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="card border-success mb-3" style="margin: 15px">
+            <div class="card-header" style="font-weight: bold; color: #0e2b63">
+              RE: RENEWAL OF CONTRACT
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Scholarship Contract Renewal is required to continue enjoying
+                the privileges granted by the City Government.
+              </p>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Feed Post Modal -->
     <!-- Modal -->
@@ -445,11 +570,294 @@
         </div>
       </div>
     </div>
+    <!-- Rendered Service Modal -->
+
+    <!-- Feed Service Modal -->
+
+    <!-- Create Service Modal -->
+
+    <div
+      class="modal fade"
+      id="createFeedPost"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Create Feed Post
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="mb-3">
+                <label for="adminFeedPostTitle1" class="form-label"
+                  >Feed Post Title</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="adminFeedPostTitle1"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="adminFeedPostContent1" class="form-label"
+                  >Write Your Content Here</label
+                >
+                <textarea
+                  class="form-control"
+                  id="adminFeedPostContent1"
+                  rows="6"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="formFileSm" class="form-label"
+                  >Upload Pictures</label
+                >
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="admin-create-post-button-feed"
+            >
+              Create Post
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Rendered Service -->
+    <div
+      class="modal fade"
+      id="staticBackdrop-createrender"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Create Render Service
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Render Service Title</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                />
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >Where</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >When</span
+                >
+                <input
+                  type="datetime-local"
+                  class="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Write Your Content Here</label
+                >
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="formFileSm" class="form-label"
+                  >Upload Pictures</label
+                >
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              id="admin-create-rendered-post-button"
+              class="btn btn-primary admin-createbrowse-button"
+            >
+              Create Post
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const createFeedPostButton = document.getElementById(
+          "admin-create-post-button-feed"
+        );
+        const createRenderedServiceButton = document.getElementById(
+          "admin-create-rendered-post-button"
+        );
+        const rowContent = document.querySelector(".row-content");
+
+        createFeedPostButton.addEventListener("click", function () {
+          // Get input values from the modal
+          const titleInput = document.getElementById(
+            "adminFeedPostTitle1"
+          ).value;
+          const contentInput = document.getElementById(
+            "adminFeedPostContent1"
+          ).value;
+
+          // Create a new card element with dynamic content
+          const newCard = document.createElement("div");
+          newCard.className = "card admin-notif-feed";
+          newCard.innerHTML = `
+        <h5 class="card-header admin-notifheader-feed">Feed Post</h5>
+        <div class="card-body">
+          <h5 class="card-title admin-notif-title-feed">${titleInput}</h5>
+          <p class="card-text">${contentInput}</p>
+          <button type="button" class="btn btn-primary admin-notif-btn-feed" data-bs-toggle="modal" data-bs-target="#feedPostButton">View Details</button>
+        </div>
+      `;
+
+          // Append the new card to the row-content
+          rowContent.appendChild(newCard);
+
+          // Clear the input fields in the modal after creating the card
+          document.getElementById("adminFeedPostTitle1").value = "";
+          document.getElementById("adminFeedPostContent1").value = "";
+        });
+
+        createRenderedServiceButton.addEventListener("click", function () {
+          // Get input values from the modal
+          const titleInput = document.getElementById(
+            "exampleFormControlInput1"
+          ).value;
+          const whereInput = document.querySelector(
+            "#staticBackdrop-createrender input[aria-label='Sizing example input']"
+          ).value;
+          const whenInput = document.querySelector(
+            "#staticBackdrop-createrender input[type='datetime-local']"
+          ).value;
+          const contentInput = document.getElementById(
+            "exampleFormControlTextarea1"
+          ).value;
+
+          // Create a new card element with dynamic content
+          const newCard = document.createElement("div");
+          newCard.className = "card admin-notif-render";
+          newCard.innerHTML = `
+        <h5 class="card-header admin-notifheader-render">${titleInput}</h5>
+        <div class="card-body">
+          <h5 class="card-title admin-notif-title-feed">${titleInput}</h5>
+          <p class="card-text">${contentInput}</p>
+          <button type="button" class="btn btn-primary admin-notif-btn-feed" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</button>
+        </div>
+      `;
+
+          // Append the new card to the row-content
+          rowContent.appendChild(newCard);
+
+          // Clear the input fields in the modal after creating the card
+          document.getElementById("exampleFormControlInput1").value = "";
+          document.querySelector(
+            "#staticBackdrop-createrender input[aria-label='Sizing example input']"
+          ).value = "";
+          document.querySelector(
+            "#staticBackdrop-createrender input[type='datetime-local']"
+          ).value = "";
+          document.getElementById("exampleFormControlTextarea1").value = "";
+        });
+      });
+    </script>
   </body>
 </html>
