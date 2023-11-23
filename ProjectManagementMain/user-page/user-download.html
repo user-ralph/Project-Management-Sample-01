@@ -97,7 +97,7 @@
             </a>
           </li>
           <li class="list">
-            <a  class="nav-link" id="DownlaodCSRlink">
+            <a  class="nav-link" id="DownlaodCSRlink1">
               <i class="bx bxs-download icon"></i>
               <span class="link">Downlaod CSR</span>
             </a>
@@ -130,20 +130,21 @@
       <div class="card mb-2" style="max-width: 100%">
         <div class="row g-0">
           <div class="col-md-4">
-            <img
-              src="../image-source/sample-avatar.jpg"
-              class="img-fluid rounded-start"
-              alt="..."
-              style="height: 15rem; width: 15rem"
-            />
+            <img id="profilePic" src="../image-source/sample-avatar.jpg" class="img-fluid rounded-start" alt="..." style="height: 15rem; width: 15rem">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title user-full-name">Jhon Lloyd Cruz</h5>
+              <h5 class="card-title user-full-name" id="fullname">Loading</h5>
               <ul class="list-group list-group-horizontal-xxl">
-                <li class="list-group-item">Status:</li>
-                <li class="list-group-item">School Year:</li>
-                <li class="list-group-item">Program:</li>
+                <li class="list-group-item">Status:
+                  <span class="user-profile-decorate user-scholar-status" id="statusS">Loading</span>
+                </li>
+                <li class="list-group-item">School Year:
+                  <span class="user-profile-decorate user-scholar-acadyear" id="schoolyearS">Loading</span>
+                </li>
+                <li class="list-group-item">Program:
+                  <span class="user-profile-decorate user-scholar-program" id="programS">Loading</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -174,6 +175,26 @@
 
     <script type="module">
 
+          // Import the necessary Firebase functions
+    // Import the necessary Firebase functions
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+    import {getDatabase, ref as dbRef , set, get} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+    import { getStorage, ref, uploadBytes, list, getDownloadURL, listAll    } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
+
+    // Initialize Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyAXTWA8tDgh36kHxr3oiI2mdZk4xN1ExIU",
+        authDomain: "coisprojectmain.firebaseapp.com",
+        projectId: "coisprojectmain",
+        storageBucket: "coisprojectmain.appspot.com",
+        messagingSenderId: "666040501925",
+        appId: "1:666040501925:web:a53d190dbffca2ceac2f4c",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const storage = getStorage(app);
+
 function getUrlParameter(name) {
         name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
         var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -182,6 +203,80 @@ function getUrlParameter(name) {
       }
     
       var userId = getUrlParameter('uid');
+
+              // Fetch user data
+              function fetchUserData() {
+    const userId = getUrlParameter('uid');
+    const userRef = dbRef(database, `users/${userId}`);
+
+    // Fetch user data
+    get(userRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        const userData = snapshot.val();
+        const fullName = userData.fullname;
+        const program = userData.program;
+        const status = userData.status;
+        const schoolyear = userData.schoolyear;
+
+        // Update HTML elements with retrieved data
+        const fullNameSpan = document.getElementById('fullname');
+        const programSpan = document.getElementById('programS');
+        const statusSpan = document.getElementById('statusS');
+        const schoolyearSpan = document.getElementById('schoolyearS');
+
+        if (fullNameSpan) {
+          fullNameSpan.textContent = fullName;
+        }
+        if (programSpan) {
+          programSpan.textContent = program;
+        }
+        if (statusSpan) {
+          statusSpan.textContent = status;
+        }
+        if (schoolyearSpan) {
+          schoolyearSpan.textContent = schoolyear;
+        }
+      } else {
+        console.log('No data available for this user');
+      }
+    }).catch((error) => {
+      console.error('Error fetching user data:', error);
+    });
+  }
+
+  // Call the function to fetch user data
+  fetchUserData();
+
+
+  function updateProfilePicture() {
+      const userId =  getUrlParameter('uid'); // Replace this with your logic to get the user ID
+      const storageRef = ref(storage, `Users/${userId}/imageprofile`);
+
+      listAll(storageRef)
+        .then((res) => {
+          if (res.items.length > 0) {
+            // Sort items by their metadata (creation time)
+            const sortedItems = res.items.sort((a, b) => b.timeCreated - a.timeCreated);
+
+            // Get the most recent item (first item after sorting)
+            const mostRecentItem = sortedItems[0];
+
+            // Fetch download URL for the most recent item
+            getDownloadURL(mostRecentItem).then((url) => {
+              const profilePic = document.getElementById('profilePic');
+              profilePic.src = url;
+            });
+          } else {
+            console.error('No images found in the folder');
+          }
+        })
+        .catch((error) => {
+          console.error('Error listing files:', error);
+        });
+    }
+
+    // Call the function to update the profile picture
+  updateProfilePicture();
     
       console.log('User ID:', userId); 
       var notificationLink = document.getElementById('notificationLink');
@@ -191,6 +286,7 @@ function getUrlParameter(name) {
       var ConnectAdminlink = document.getElementById('ConnectAdminlink');
       var UploadAttachmentslink = document.getElementById('UploadAttachmentslink');
       var DownlaodCSRlink = document.getElementById('DownlaodCSRlink');
+      var DownlaodCSRlink1 = document.getElementById('DownlaodCSRlink1');
       var ViewRenderedServiceslink = document.getElementById('ViewRenderedServiceslink');
     
 
@@ -212,8 +308,9 @@ function getUrlParameter(name) {
       if (userId && UploadAttachmentslink) {
         UploadAttachmentslink.href = 'user-upload-attachments.html?uid=' + userId;
       }
-      if (userId && DownlaodCSRlink) {
+      if (userId && DownlaodCSRlink && DownlaodCSRlink1) {
         DownlaodCSRlink.href = 'user-download.html?uid=' + userId;
+        DownlaodCSRlink1.href = 'user-download.html?uid=' + userId;
       }
       if (userId && ViewRenderedServiceslink) {
         ViewRenderedServiceslink.href = 'user-view-rendered-services.html?uid=' + userId;

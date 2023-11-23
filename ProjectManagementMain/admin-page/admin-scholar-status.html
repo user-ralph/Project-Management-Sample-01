@@ -387,17 +387,6 @@
     var status = document.getElementById('status').value;
     var password = "123456789";
 
-     // Use the values as needed (e.g., console.log or send to a server)
-    console.log("Email:", email);
-    console.log("First Name:", firstName);
-    console.log("Last Name:", lastName);
-    console.log("Middle Name:", middleName);
-    console.log("Program:", program);
-    console.log("School:", school);
-    console.log("School Year:", schoolYear);
-    console.log("Year Level:", yearLevel);
-    console.log("Status:", status);
-
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;

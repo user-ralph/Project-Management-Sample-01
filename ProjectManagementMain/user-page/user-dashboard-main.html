@@ -182,7 +182,7 @@
                 Verify and upload your requirement for scholarship renewal.
               </p>
               <a
-                id="UploadAttachmentslink"
+                id="UploadAttachmentslink1"
                 class="btn btn-primary user-first-row-button"
                 style="margin: 4px"
                 >View to Upload <i class="bx bx-upload user-main-icon"></i>
@@ -341,6 +341,7 @@
       var BrowseServicelink = document.getElementById('BrowseServicelink');
       var ConnectAdminlink = document.getElementById('ConnectAdminlink');
       var UploadAttachmentslink = document.getElementById('UploadAttachmentslink');
+      var UploadAttachmentslink1 = document.getElementById('UploadAttachmentslink1');
       var DownlaodCSRlink = document.getElementById('DownlaodCSRlink');
       var ViewRenderedServiceslink = document.getElementById('ViewRenderedServiceslink');
     
@@ -360,8 +361,9 @@
       if (userId && ConnectAdminlink) {
         ConnectAdminlink.href = 'user-connect-admin.html?uid=' + userId;
       }
-      if (userId && UploadAttachmentslink) {
+      if (userId && UploadAttachmentslink && UploadAttachmentslink1) {
         UploadAttachmentslink.href = 'user-upload-attachments.html?uid=' + userId;
+        UploadAttachmentslink1.href = 'user-upload-attachments.html?uid=' + userId;
       }
       if (userId && DownlaodCSRlink) {
         DownlaodCSRlink.href = 'user-download.html?uid=' + userId;

@@ -85,7 +85,7 @@
             </a>
           </li>
           <li class="list">
-            <a href="user-connect-admin.html" class="nav-link">
+            <a href="admin-connect-admin.html" class="nav-link">
               <i class="bx bx-message-edit icon"></i>
               <span class="link">Connect Admin</span>
             </a>
@@ -151,15 +151,23 @@
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title admin-browse-title-1">#JustHere</h5>
-              <p class="card-text admin-notif-text-render">
+              <h5
+                class="card-title admin-browse-title-1"
+                id="rendered-service-title"
+              >
+                #JustHere
+              </h5>
+              <p
+                class="card-text admin-notif-text-render"
+                id="rendered-service-content-text"
+              >
                 #JustHere is a social media campaign that aims to raise mental
                 health awareness among Oro Scholars and social media users.
               </p>
 
               <button
                 type="button"
-                id="justHereButton"
+                id="rendered-service-reference-view-content"
                 class="btn btn-primary admin-notif-btn-render"
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop-content1"
@@ -167,35 +175,14 @@
               >
                 View More Details
               </button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card admin-browse-content1">
-            <img
-              src="../image-source/rendered-service-poster1.png"
-              class="card-img-top rendered-service-poster1"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title admin-browse-title-1">
-                CELEBRATE HIGALAAY 🎉
-              </h5>
-              <p class="card-text admin-notif-text-render">
-                Explore the many festivities the city has to offer in lieu of
-                the month-long celebration of Higalaay Festival and share your
-                stories.
-              </p>
 
               <button
                 type="button"
-                id="celebrateHigalaayButton"
-                class="btn btn-primary admin-notif-btn-render"
+                class="btn btn-primary admin-button-delete-itemrendered"
                 data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop-content1"
-                data-bs-content="content2"
+                data-bs-target="#questionToDelete"
               >
-                View More Details
+                <i class="bx bx-trash"></i> Delete Item
               </button>
             </div>
           </div>
@@ -223,7 +210,7 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            <h1 class="modal-title fs-5" id="rendered-service-title">
               Rendered Service
             </h1>
             <button
@@ -264,6 +251,7 @@
                     src="../image-source/adminnotif1.jpg"
                     class="d-block w-100"
                     alt="..."
+                    id="rendered-image-reference-1"
                   />
                 </div>
                 <div class="carousel-item">
@@ -271,6 +259,7 @@
                     src="../image-source/adminnotif2.jpg"
                     class="d-block w-100"
                     alt="..."
+                    id="rendered-image-reference-2"
                   />
                 </div>
                 <div class="carousel-item">
@@ -278,6 +267,7 @@
                     src="../image-source/adminnotif3.jpg"
                     class="d-block w-100"
                     alt="..."
+                    id="rendered-image-reference-3"
                   />
                 </div>
               </div>
@@ -314,7 +304,7 @@
             </div>
             <div class="card-body">
               <blockquote class="blockquote mb-0">
-                <p>
+                <p id="rendered-service-content-text">
                   #JustHere is a social media campaign that aims to raise mental
                   health awareness among Oro Scholars and social media users.
                   This campaign highlights experiences of inspiration,
@@ -326,6 +316,20 @@
                 </p>
               </blockquote>
             </div>
+          </div>
+
+          <div class="card border-success" style="margin: 15px">
+            <div class="card-header">Rendered Service</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                Where:
+                <p id="renderedService-where">Greenheights</p>
+              </li>
+              <li class="list-group-item">
+                When:
+                <p id="renderedService-when"></p>
+              </li>
+            </ul>
           </div>
 
           <div class="modal-body">
@@ -479,7 +483,7 @@
       aria-hidden="true"
     >
       <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" id="Modal-Create-Content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">
               Create Render Service
@@ -500,7 +504,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="exampleFormControlInput1"
+                  id="rendered-service-title"
                 />
               </div>
               <div class="input-group input-group-sm mb-3">
@@ -509,6 +513,7 @@
                 >
                 <input
                   type="text"
+                  id="renderedService-where"
                   class="form-control"
                   aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-sm"
@@ -520,6 +525,7 @@
                 >
                 <input
                   type="datetime-local"
+                  id="renderedService-when"
                   class="form-control"
                   aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-sm"
@@ -532,7 +538,7 @@
                 >
                 <textarea
                   class="form-control"
-                  id="exampleFormControlTextarea1"
+                  id="rendered-service-content-text"
                   rows="3"
                 ></textarea>
               </div>
@@ -542,17 +548,17 @@
                 >
                 <input
                   class="form-control form-control-sm"
-                  id="formFileSm"
+                  id="rendered-image-reference-1"
                   type="file"
                 />
                 <input
                   class="form-control form-control-sm"
-                  id="formFileSm"
+                  id="rendered-image-reference-2"
                   type="file"
                 />
                 <input
                   class="form-control form-control-sm"
-                  id="formFileSm"
+                  id="rendered-image-reference-3"
                   type="file"
                 />
               </div>
@@ -577,48 +583,57 @@
       </div>
     </div>
 
+    <!-- For asking to delete the item -->
+    <div
+      class="modal fade"
+      id="questionToDelete"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">Are you sure to delete the item?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="rendered-service-delete-button"
+            >
+              Yes Confirm
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
 
-    <script>
-      const exampleModal = document.getElementById("staticBackdrop-content1");
-      const modalTitle = exampleModal.querySelector(".modal-title");
-      const modalContentTitle = exampleModal.querySelector(
-        ".admin-notif-contenttitle"
-      );
-      const modalImages = exampleModal.querySelectorAll(
-        ".content-imagesize img"
-      );
-
-      if (exampleModal) {
-        exampleModal.addEventListener("show.bs.modal", (event) => {
-          // Button that triggered the modal
-          const button = event.relatedTarget;
-          // Extract the unique identifier from data-bs-content attribute
-          const contentIdentifier = button.getAttribute("data-bs-content");
-
-          // Update the modal's content based on the identifier
-          if (contentIdentifier === "content1") {
-            modalTitle.textContent = "Rendered Service - #JustHere";
-            modalContentTitle.textContent = "#JustHere";
-            // Update image sources as needed
-            modalImages[0].src = "../image-source/adminnotif1.jpg";
-            modalImages[1].src = "../image-source/adminnotif2.jpg";
-            modalImages[2].src = "../image-source/adminnotif3.jpg";
-          } else if (contentIdentifier === "content2") {
-            modalTitle.textContent = "Rendered Service - CELEBRATE HIGALAAY 🎉";
-            modalContentTitle.textContent = "CELEBRATE HIGALAAY 🎉 ";
-            // Update image sources as needed
-            modalImages[0].src = "../image-source/adminnotif2A.jpg";
-            modalImages[1].src = "../image-source/adminnotif2B.jpg";
-            modalImages[2].src = "../image-source/adminnotif2C.jpg";
-          }
-        });
-      }
-    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -630,19 +645,33 @@
         );
 
         createBrowseButton.addEventListener("click", function () {
-          // Create a new card element
+          // Get input values from the modal
+          const titleInput = document.getElementById(
+            "rendered-service-title"
+          ).value;
+          const whereInput = document.getElementById(
+            "renderedService-where"
+          ).value;
+          const whenInput = document.getElementById(
+            "renderedService-when"
+          ).value;
+          const contentInput = document.getElementById(
+            "rendered-service-content-text"
+          ).value;
+
+          // Create a new card element with dynamic content
           const newCard = document.createElement("div");
           newCard.className = "col";
           newCard.innerHTML = `
-          <div class="card admin-browse-content1">
-            <img src="../image-source/rendered-service-poster3.png" class="card-img-top rendered-service-poster1" alt="...">
-            <div class="card-body">
-              <h5 class="card-title admin-browse-title-1">New Card Title</h5>
-              <p class="card-text admin-notif-text-render">This is a new card added dynamically.</p>
-              <button type="button" class="btn btn-primary admin-notif-btn-render" data-bs-toggle="modal" data-bs-target="#staticBackdrop-content1" data-bs-content="content3">View More Details</button>
-            </div>
+        <div class="card admin-browse-content1">
+          <img src="../image-source/rendered-service-poster3.png" class="card-img-top rendered-service-poster1" alt="...">
+          <div class="card-body">
+            <h5 class="card-title admin-browse-title-1">${titleInput}</h5>
+            <p class="card-text admin-notif-text-render">${contentInput}</p>
+            <button type="button" class="btn btn-primary admin-notif-btn-render" data-bs-toggle="modal" data-bs-target="#staticBackdrop-content1" data-bs-content="content3">View More Details</button>
           </div>
-        `;
+        </div>
+      `;
 
           // Append the new card to the card row
           cardRow.appendChild(newCard);

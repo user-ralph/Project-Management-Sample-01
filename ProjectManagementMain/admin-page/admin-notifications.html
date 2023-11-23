@@ -188,7 +188,7 @@
             </button>
           </div>
         </div>
-        <div class="card admin-notif-feed">
+        <div class="card admin-notif-render">
           <h5 class="card-header admin-notifheader-render">Rendered Service</h5>
           <div class="card-body">
             <h5 class="card-title admin-notif-title-feed">
@@ -653,7 +653,7 @@
             <button
               type="button"
               class="btn btn-primary"
-              id="admin-create-post-button"
+              id="admin-create-post-button-feed"
             >
               Create Post
             </button>
@@ -777,5 +777,87 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const createFeedPostButton = document.getElementById(
+          "admin-create-post-button-feed"
+        );
+        const createRenderedServiceButton = document.getElementById(
+          "admin-create-rendered-post-button"
+        );
+        const rowContent = document.querySelector(".row-content");
+
+        createFeedPostButton.addEventListener("click", function () {
+          // Get input values from the modal
+          const titleInput = document.getElementById(
+            "adminFeedPostTitle1"
+          ).value;
+          const contentInput = document.getElementById(
+            "adminFeedPostContent1"
+          ).value;
+
+          // Create a new card element with dynamic content
+          const newCard = document.createElement("div");
+          newCard.className = "card admin-notif-feed";
+          newCard.innerHTML = `
+        <h5 class="card-header admin-notifheader-feed">Feed Post</h5>
+        <div class="card-body">
+          <h5 class="card-title admin-notif-title-feed">${titleInput}</h5>
+          <p class="card-text">${contentInput}</p>
+          <button type="button" class="btn btn-primary admin-notif-btn-feed" data-bs-toggle="modal" data-bs-target="#feedPostButton">View Details</button>
+        </div>
+      `;
+
+          // Append the new card to the row-content
+          rowContent.appendChild(newCard);
+
+          // Clear the input fields in the modal after creating the card
+          document.getElementById("adminFeedPostTitle1").value = "";
+          document.getElementById("adminFeedPostContent1").value = "";
+        });
+
+        createRenderedServiceButton.addEventListener("click", function () {
+          // Get input values from the modal
+          const titleInput = document.getElementById(
+            "exampleFormControlInput1"
+          ).value;
+          const whereInput = document.querySelector(
+            "#staticBackdrop-createrender input[aria-label='Sizing example input']"
+          ).value;
+          const whenInput = document.querySelector(
+            "#staticBackdrop-createrender input[type='datetime-local']"
+          ).value;
+          const contentInput = document.getElementById(
+            "exampleFormControlTextarea1"
+          ).value;
+
+          // Create a new card element with dynamic content
+          const newCard = document.createElement("div");
+          newCard.className = "card admin-notif-render";
+          newCard.innerHTML = `
+        <h5 class="card-header admin-notifheader-render">${titleInput}</h5>
+        <div class="card-body">
+          <h5 class="card-title admin-notif-title-feed">${titleInput}</h5>
+          <p class="card-text">${contentInput}</p>
+          <button type="button" class="btn btn-primary admin-notif-btn-feed" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</button>
+        </div>
+      `;
+
+          // Append the new card to the row-content
+          rowContent.appendChild(newCard);
+
+          // Clear the input fields in the modal after creating the card
+          document.getElementById("exampleFormControlInput1").value = "";
+          document.querySelector(
+            "#staticBackdrop-createrender input[aria-label='Sizing example input']"
+          ).value = "";
+          document.querySelector(
+            "#staticBackdrop-createrender input[type='datetime-local']"
+          ).value = "";
+          document.getElementById("exampleFormControlTextarea1").value = "";
+        });
+      });
+    </script>
   </body>
 </html>
