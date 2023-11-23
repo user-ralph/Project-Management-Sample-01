@@ -159,7 +159,11 @@
             document
           </p>
 
-          <a href="#" class="btn btn-primary user-download-button" download="">
+          <a
+            href="#"
+            class="btn btn-primary user-download-button"
+            id="generateUserPDF"
+          >
             <i class="bx bxs-file"></i> Download CSR</a
           >
         </div>
@@ -171,5 +175,137 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.8/pdfmake.min.js"
+      integrity="sha512-uVTNNXu6Z1rrgpMLuErTMferac7mGwfA7/oXfuGbpSmBqcopa8jCURWE1rBF3LMg7Zir+avOX807eGwHaL7akA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.8/vfs_fonts.min.js"
+      integrity="sha512-EFlschXPq/G5zunGPRSYqazR1CMKj0cQc8v6eMrQwybxgIbhsfoO5NAMQX3xFDQIbFlViv53o7Hy+yCWw6iZxA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      // Function to generate and download the PDF
+      function generatePDF() {
+        var name = "Jhon Lloyd Cruz";
+        var program = "BSCPE-3";
+        var schoolYear = "2023 - 2024";
+        var currentDate = new Date();
+        var formattedDate = currentDate.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+
+        var docDefinition = {
+          pageSize: {
+            width: 595.28,
+            height: "auto",
+          }, // Set the page size to A4
+          content: [
+            { text: "CERTIFICATE OF SCHOLARSHIP RENEWAL", style: "header" },
+            {
+              text: "Period Covered: 1st Semester SY 2023-2024",
+              style: "subHeader",
+            },
+            "",
+            {
+              text:
+                "THIS IS TO CERTIFY the RENEWAL OF SCHOLARSHIP of " +
+                name +
+                ", a resident of Cagayan de Oro City, to the City College Scholarship Program with the Course " +
+                program +
+                " at UNIVERSITY OF SCIENCE AND TECHNOLOGY OF SOUTHERN PHILIPPINES for the First Semester of School Year " +
+                schoolYear,
+              style: "boldParagraph",
+            },
+            "",
+            {
+              text: "This certifies further that the City Government of Cagayan de Oro through the City Treasurer will pay the Tuition, Matriculation, and Other Fees which are relevant or applicable to the Course taken by the said scholar and as billed by the school",
+              style: "boldParagraph",
+            },
+            "",
+            {
+              text: "This certification is issued upon the request of the above-named student-scholar that he/she is allowed to enroll in your school even without or with minimal down-payment however, the City Government through the City Scholarships Office shall submit an Official Master list of Scholars thirty (30) days after the last day of enrollment",
+              style: "boldParagraph",
+            },
+            "",
+            {
+              text:
+                "Issued this " +
+                formattedDate +
+                " at the City of Cagayan de Oro, Philippines.",
+              style: "paragraph",
+            },
+            { text: "", margin: [0, 0, 0, 20] }, // 2 space below margin
+            {
+              text: "MS. RICHEL PETALCURIN-DAHAY\nCity Scholarship Head",
+              style: "boldSignature",
+            },
+            {
+              text: "MS. SHEILA B. LUMBATAN\nChief of Staff, Mayor's Office",
+              style: "boldSignature",
+            },
+          ],
+          styles: {
+            header: {
+              fontSize: 18,
+              bold: true,
+              alignment: "center",
+              margin: [0, 0, 0, 20], // Space below margin
+            },
+            subHeader: {
+              fontSize: 14,
+              alignment: "center",
+              margin: [0, 0, 0, 30], // Space below margin
+            },
+            boldParagraph: {
+              fontSize: 12,
+              alignment: "justify",
+              margin: [0, 0, 0, 30], // Space below margin
+            },
+            paragraph: {
+              fontSize: 12,
+              alignment: "justify",
+              margin: [0, 0, 0, 30], // Space below margin
+              lineHeight: 1.5, // Set line spacing to 1.5
+            },
+            boldSignature: {
+              fontSize: 12,
+              bold: true,
+              alignment: "left",
+              margin: [0, 0, 0, 40], // Space below margin
+            },
+            bottomText: {
+              fontSize: 8,
+              alignment: "left",
+              margin: [0, 0, 0, 30], // Space below margin
+            },
+          },
+        };
+
+        // Add the text at the bottom of the PDF
+        var bottomText = {
+          text: "KEEP THIS CERTIFICATE. YOU WILL BE REQUIRED TO PRESENT THIS IN ALL YOUR DEALINGS WITH THE COLLEGES.",
+          style: "bottomText",
+        };
+        docDefinition.content.push(bottomText);
+
+        pdfMake
+          .createPdf(docDefinition)
+          .download("Certificate_of_Scholarship_Renewal.pdf");
+      }
+
+      // Add event listener for the button click
+      document
+        .getElementById("generateUserPDF")
+        .addEventListener("click", generatePDF);
+    </script>
   </body>
 </html>
