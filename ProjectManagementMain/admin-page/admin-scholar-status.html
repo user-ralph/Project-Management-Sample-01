@@ -262,56 +262,51 @@
               />
             </div>
 
-            <!-- School -->
             <div class="input-group flex-nowrap" style="margin-top: 10px">
-              <span class="input-group-text" id="addon-wrapping">School</span>
-              <input
-                type="text"
-                class="form-control"
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
-                id="school"
-              />
+              <label for="school" class="input-group-text">School</label>
+              <select class="form-select" id="school">
+                <option value="USTP - CDO">USTP - CDO</option>
+                <option value="USTP - Alubijid">USTP - Alubijid</option>
+                <option value="USTP - Villanueva">USTP - Villanueva</option>
+                <option value="USTP - Claveria">USTP - Claveria</option>
+                <option value="USTP - Jasaan">USTP - Jasaan</option>
+              </select>
             </div>
 
             <!-- School Year  -->
             <div class="input-group flex-nowrap" style="margin-top: 10px">
-              <span class="input-group-text" id="addon-wrapping"
-                >School Year</span
-              >
-              <input
-                type="text"
-                class="form-control"
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
-                id="schoolYear"
-              />
+              <label for="schoolYear" class="input-group-text">School Year</label>
+              <select class="form-select" id="schoolYear">
+                <option value="2021-2022">2021-2022</option>
+                <option value="2022-2023">2022-2023</option>
+                <option value="2023-2024">2023-2024</option>
+                <option value="2024-2025">2024-2025</option>
+                <option value="2025-2026">2025-2026</option>
+                <option value="2026-2027">2026-2027</option>
+                <option value="2027-2028">2027-2028</option>
+                <option value="2028-2029">2028-2029</option>
+                <option value="2029-2030">2029-2030</option>
+              </select>
             </div>
 
             <!-- School Year -->
             <div class="input-group flex-nowrap" style="margin-top: 10px">
-              <span class="input-group-text" id="addon-wrapping"
-                >Year Level</span
-              >
-              <input
-                type="text"
-                class="form-control"
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
-                id="yearLevel"
-              />
+              <label for="yearLevel" class="input-group-text">Year Level</label>
+              <select class="form-select" id="yearLevel">
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+              </select>
             </div>
 
             <!-- Status -->
             <div class="input-group flex-nowrap" style="margin-top: 10px">
-              <span class="input-group-text" id="addon-wrapping">Status</span>
-              <input
-                type="text"
-                class="form-control"
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
-                id="status"
-              />
+              <label for="status" class="input-group-text">Status</label>
+              <select class="form-select" id="status">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
             </div>
 
             <button type="submit" class="btn admin-submit-button">
@@ -417,6 +412,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     const tableBody = document.getElementById('tableBody');
+    
 
     // Fetch data from Firebase collection (assuming 'users' is your collection)
     const usersRef = ref(database, 'users');
@@ -454,7 +450,7 @@
       });
 
 
-      function generatePDF() {
+    function generatePDF() {
       const doc = new jsPDF('l'); // Create a new PDF document in landscape orientation
 
       // Configure the columns and rows
