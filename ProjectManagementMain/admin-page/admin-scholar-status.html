@@ -381,7 +381,8 @@
     var yearLevel = document.getElementById('yearLevel').value;
     var status = document.getElementById('status').value;
     var password = "123456789";
-
+    
+// create sa user
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;

@@ -358,7 +358,7 @@
             tableBody.appendChild(row);
 
                     // Add event listener to the status dropdown
-                    const statusDropdown = row.querySelector('.status-dropdown');
+          const statusDropdown = row.querySelector('.status-dropdown');
             updateDropdownColor(statusDropdown); // Initial call to set the dropdown color
             statusDropdown.addEventListener('change', (event) => {
               const selectedStatus = event.target.value;
@@ -373,21 +373,21 @@
                   console.error('Error updating status: ', error);
                 });
             });
-          });
+              });
 
-          // Initialize DataTables
-          $('#scholarTable').DataTable({
-            "order": [[0, "asc"]], // Sort by the first column (Scholar Name)
-            "paging": true, // Enable pagination
-            "searching": true // Enable search functionality
+              // Initialize DataTables
+              $('#scholarTable').DataTable({
+                "order": [[0, "asc"]], // Sort by the first column (Scholar Name)
+                "paging": true, // Enable pagination
+                "searching": true // Enable search functionality
+              });
+            } else {
+              console.log("No data available");
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching documents: ", error);
           });
-        } else {
-          console.log("No data available");
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching documents: ", error);
-      });
 
           // Function to update the dropdown color based on the selected option
     function updateDropdownColor(dropdown) {
@@ -401,29 +401,6 @@
     }
     
   });
-
-
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </body>
 </html>

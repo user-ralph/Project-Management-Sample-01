@@ -197,7 +197,8 @@
     <!-- Feed Post Modal -->
     <!-- Modal -->
     <!-- Feed Post Modal -->
-    <!-- Modal -->
+
+    <!-- Pop Display -->
     <div
       class="modal fade modal-dialog-scrollable"
       id="staticBackdrop-content1"
@@ -472,6 +473,8 @@
       </div>
     </div>
 
+
+
     <!-- For Create Post -->
     <div
       class="modal fade"
@@ -504,7 +507,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="rendered-service-title"
+                  id="rendered-service-title1"
                 />
               </div>
               <div class="input-group input-group-sm mb-3">
@@ -513,7 +516,7 @@
                 >
                 <input
                   type="text"
-                  id="renderedService-where"
+                  id="renderedService-where1"
                   class="form-control"
                   aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-sm"
@@ -525,7 +528,7 @@
                 >
                 <input
                   type="datetime-local"
-                  id="renderedService-when"
+                  id="renderedService-when1"
                   class="form-control"
                   aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-sm"
@@ -533,12 +536,12 @@
               </div>
 
               <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label"
+                <label for="exampleFormControlTextarea1" id="rendered-service-content-text" class="form-label"
                   >Write Your Content Here</label
                 >
                 <textarea
                   class="form-control"
-                  id="rendered-service-content-text"
+                  id="rendered-service-content-text1"
                   rows="3"
                 ></textarea>
               </div>
@@ -635,48 +638,81 @@
       crossorigin="anonymous"
     ></script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const createBrowseButton = document.querySelector(
-          ".admin-createbrowse-button"
-        );
-        const cardRow = document.querySelector(
-          ".row.row-cols-1.row-cols-md-3.g-4"
-        );
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+      import {getDatabase, set, ref, child, onValue, get} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
 
-        createBrowseButton.addEventListener("click", function () {
-          // Get input values from the modal
-          const titleInput = document.getElementById(
-            "rendered-service-title"
-          ).value;
-          const whereInput = document.getElementById(
-            "renderedService-where"
-          ).value;
-          const whenInput = document.getElementById(
-            "renderedService-when"
-          ).value;
-          const contentInput = document.getElementById(
-            "rendered-service-content-text"
-          ).value;
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXTWA8tDgh36kHxr3oiI2mdZk4xN1ExIU",
+      authDomain: "coisprojectmain.firebaseapp.com",
+      projectId: "coisprojectmain",
+      storageBucket: "coisprojectmain.appspot.com",
+      messagingSenderId: "666040501925",
+      appId: "1:666040501925:web:a53d190dbffca2ceac2f4c",
+    };
 
-          // Create a new card element with dynamic content
+    const app = initializeApp (firebaseConfig);
+    const database = getDatabase (app);
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+      const createBrowseButton = document.querySelector(".admin-createbrowse-button");
+      const cardRow = document.querySelector(".row.row-cols-1.row-cols-md-3.g-4");
+
+      createBrowseButton.addEventListener("click", function () {
+        const titleInputs = document.querySelectorAll("#rendered-service-title1");
+        const whereInputs = document.querySelectorAll("#renderedService-where1");
+        const whenInputs = document.querySelectorAll("#renderedService-when1");
+        const contentInputs = document.querySelectorAll("#rendered-service-content-text1");
+
+        // Create an array to hold the post data
+        const postsData = [];
+        titleInputs.forEach((titleInput, index) => {
+          const whereInput = whereInputs[index].value || ""; // Ensure there's a default value if it's undefined
+          const whenInput = whenInputs[index].value;
+          const contentInput = contentInputs[index].value;
+
+          // Check if required inputs are not empty for each post
+          if (titleInput.value && whenInput && contentInput) {
+            postsData.push({
+              title: titleInput.value,
+              where: whereInput,
+              when: whenInput,
+              content: contentInput,
+            });
+          } else {
+            console.error(`Please fill in all required fields for post ${index + 1}`);
+            // You can display an error message to the user or handle the scenario as needed
+          }
+        });
+
+        // Store the new post data array in Firebase
+        postsData.forEach((postData) => {
+          set(ref(database, "posts/"), postData);
+
+          // Create a new card element with dynamic content for each post
           const newCard = document.createElement("div");
           newCard.className = "col";
           newCard.innerHTML = `
-        <div class="card admin-browse-content1">
-          <img src="../image-source/rendered-service-poster3.png" class="card-img-top rendered-service-poster1" alt="...">
-          <div class="card-body">
-            <h5 class="card-title admin-browse-title-1">${titleInput}</h5>
-            <p class="card-text admin-notif-text-render">${contentInput}</p>
-            <button type="button" class="btn btn-primary admin-notif-btn-render" data-bs-toggle="modal" data-bs-target="#staticBackdrop-content1" data-bs-content="content3">View More Details</button>
-          </div>
-        </div>
-      `;
+            <div class="card admin-browse-content1">
+              <img src="../image-source/rendered-service-poster1.png" class="card-img-top rendered-service-poster1" alt="...">
+              <div class="card-body">
+                <h5 class="card-title admin-browse-title-1">${postData.title}</h5>
+                <p class="card-text admin-notif-text-render">${postData.content}</p>
+                <button type="button" class="btn btn-primary admin-notif-btn-render" data-bs-toggle="modal" data-bs-target="#staticBackdrop-content1" data-bs-content="content3">View More Details</button>
+                <button type="button" class="btn btn-primary admin-button-delete-itemrendered" data-bs-toggle="modal" data-bs-target="#questionToDelete">
+                  <i class="bx bx-trash"></i> Delete Item
+                </button>
+              </div>
+            </div>
+          `;
 
-          // Append the new card to the card row
+          // Append the new card to the card row for each post
           cardRow.appendChild(newCard);
         });
       });
+    });
     </script>
   </body>
 </html>
