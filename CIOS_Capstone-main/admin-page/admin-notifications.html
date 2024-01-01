@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style-sheets/user-main-page.css" />
+    <link rel="icon" href="../image-source/set-web-icon.png" />
+
+    <title>COIS - Notifications</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <h4 class="page-title">Admin Access</h4>
+      <div class="profile">
+        <input type="text" placeholder="Search..." id="user-search" />
+        <i class="bx bx-search"></i>
+        <div class="dropdown">
+          <a
+            class="btn btn-secondary dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              class="profile-image"
+              src="../image-source/student-icon.png"
+              alt=""
+            />
+            Admin Tab
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="admin-scholar-status.html"
+                >Scholar Status</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="../home-page-user.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <input type="checkbox" id="toggle" />
+    <label for="toggle" class="side-toggle"><i class="bx bx-menu"></i></label>
+
+    <div class="sidebar">
+      <div class="sidebar-content">
+        <ul class="lists">
+          <li class="list">
+            <a href="admin-dashboard-main.html" class="nav-link">
+              <i class="bx bxs-dashboard icon"></i>
+              <span class="link">Dashboard</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="admin-scholar-status.html" class="nav-link">
+              <i class="bx bxs-user-account icon"></i>
+              <span class="link">Scholar Status</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="admin-connect-admin.html" class="nav-link">
+              <i class="bx bx-notification icon"></i>
+              <span class="link">Announcements</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="admin-browse-service.html" class="nav-link">
+              <i class="bx bx-category icon"></i>
+              <span class="link">Browse Service</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="admin-connect-admin.html" class="nav-link">
+              <i class="bx bx-message-edit icon"></i>
+              <span class="link">Connect Admin</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="admin-verify-attachments.html" class="nav-link">
+              <i class="bx bxs-select-multiple icon"></i>
+              <span class="link">Verify Attachments</span>
+            </a>
+          </li>
+        </ul>
+        <div class="bottom-content">
+          <li class="list-bottom">
+            <a href="../home-page-user.html" class="nav-link">
+              <i class="bx bx-log-out icon"></i>
+              <span class="link">Logout</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </div>
+
+    <main class="mt-5 pt-3">
+      <p class="user-page-title">Announcements</p>
+
+      <nav aria-label="breadcrumb" style="margin-left: 10px">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="admin-dashboard-main.html">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Notifications
+          </li>
+        </ol>
+      </nav>
+
+      <nav class="nav nav-content1" style="margin-bottom: 10px">
+        <a
+          class="nav-link active nav-hover-contentA"
+          aria-current="page"
+          href="#"
+          >All</a
+        >
+        <div class="dropdown">
+          <button
+            type="button"
+            class="btn btn-primary admin-browse-btn1"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop-createrender"
+          >
+            <i class="bx bx-plus" style="font-size: 20px"></i> Create
+            Announcements
+          </button>
+        </div>
+      </nav>
+
+      <nav class="row-content"></nav>
+    </main>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="feedPostButton"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Feed Post</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="carouselExample" class="carousel slide">
+              <div class="carousel-inner">
+                <div class="carousel-item active"></div>
+                <div class="carousel-item"></div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExample"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExample"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="card border-success mb-3" style="margin: 15px">
+            <div
+              id="post-title"
+              class="card-header"
+              style="font-weight: bold; color: #0e2b63"
+            >
+              RE: RENEWAL OF CONTRACT
+            </div>
+            <div class="card-body">
+              <p id="post-content" class="card-text">
+                Scholarship Contract Renewal is required to continue enjoying
+                the privileges granted by the City Government.
+              </p>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Announcements-->
+    <div
+      class="modal fade"
+      id="staticBackdrop-createrender"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content" id="Modal-Create-Content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Create Annoucements
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Announce 📢</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="rendered-service-title1"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label
+                  for="exampleFormControlTextarea1"
+                  id="rendered-service-content-text"
+                  class="form-label"
+                  >Write Your Content Here</label
+                >
+                <textarea
+                  class="form-control"
+                  id="rendered-service-content-text1"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="formFileSm" class="form-label"
+                  >Upload Pictures</label
+                >
+                <input
+                  class="form-control"
+                  type="file"
+                  id="renderservicefile"
+                />
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary admin-createbrowse-button"
+            >
+              Create
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+      import {
+        getDatabase,
+        set,
+        ref,
+        child,
+        onValue,
+        get,
+        remove,
+      } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+      import {
+        getStorage,
+        ref as dbRef,
+        uploadBytes,
+        list,
+        getDownloadURL,
+        listAll,
+      } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
+
+      // Initialize Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyAXTWA8tDgh36kHxr3oiI2mdZk4xN1ExIU",
+        authDomain: "coisprojectmain.firebaseapp.com",
+        projectId: "coisprojectmain",
+        storageBucket: "coisprojectmain.appspot.com",
+        messagingSenderId: "666040501925",
+        appId: "1:666040501925:web:a53d190dbffca2ceac2f4c",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      const storage = getStorage(app);
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const createBrowseButton = document.querySelector(
+          ".admin-createbrowse-button"
+        );
+        const cardRow = document.querySelector(".row-content");
+
+        // Reference to the posts collection in Firebase
+        const postsRef = ref(database, "postannouncements");
+
+        // Assuming createBrowseButton is declared somewhere in your code
+        createBrowseButton.addEventListener("click", async function () {
+          const titleInput = document.querySelector(
+            "#rendered-service-title1"
+          ).value;
+          const contentInput = document.querySelector(
+            "#rendered-service-content-text1"
+          ).value;
+          const processedText = processTextForFirebase(contentInput);
+
+          // Create an object to hold the post data
+          const postData = {
+            title: titleInput,
+            content: processedText,
+          };
+
+          if (titleInput && contentInput) {
+            try {
+              // Get the current count of posts from Firebase
+              const snapshot = await get(postsRef);
+              const postCount = Object.keys(snapshot.val() || {}).length;
+
+              // Push data to Firebase with a unique post ID
+              await set(
+                ref(database, `postannouncements/ann${postCount}`),
+                postData
+              );
+              location.reload();
+              alert("Posted successfully");
+            } catch (error) {
+              console.error("Error writing document: ", error);
+            }
+          } else {
+            alert("Please fill in all required fields");
+          }
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const database = getDatabase(app);
+        const postsRef = ref(database, "postannouncements"); // Reference to the 'postannouncements' node in Firebase
+
+        // Fetch data from Firebase
+        onValue(postsRef, (snapshot) => {
+          const posts = snapshot.val(); // Retrieved posts from Firebase
+
+          // Get the container where you want to display the posts
+          const cardContainer = document.querySelector(".row-content");
+
+          // Function to format text content with line breaks and clickable links
+          function formatText(text) {
+            const formattedText = text
+              .split("\n")
+              .map((line) => {
+                if (line.match(/https?:\/\/[^\s]+/)) {
+                  return `<p>${linkify(line)}</p>`;
+                }
+                return `<p>${line}</p>`;
+              })
+              .join("");
+
+            return formattedText;
+          }
+
+          // Loop through the posts
+          for (const key in posts) {
+            const postData = posts[key]; // Retrieve individual post data
+
+            // Create HTML elements dynamically and populate them with fetched data
+            const newCard = document.createElement("div");
+            newCard.className = "col";
+
+            // Adding "Feed Post" block within the card
+            newCard.innerHTML = `
+            <div class="card admin-notif-feed">
+              <h5 class="card-header admin-notifheader-feed">Feed Post</h5>
+              <div class="card-body">
+                <h5 class="card-title admin-notif-title-feed">${postData.title}</h5>
+                <p class="card-text">${postData.content}</p>
+                <button
+                  type="button"
+                  class="btn btn-primary admin-notif-btn-feed"
+                  data-bs-toggle="modal"
+                  data-bs-target="#feedPostButton"
+                  data-bs-content="${key}"
+                >
+                  View Details
+                </button>
+                <button type="button" class="btn btn-primary admin-button-delete-itemrendered" data-post-key="${key}" data-bs-toggle="modal" data-bs-target="#questionToDelete">
+                  <i class="bx bx-trash"></i> Delete Item
+                </button>
+              </div>
+            </div>
+          `;
+
+            // Append the newly created card to the card container
+            cardContainer.appendChild(newCard);
+
+            // Add event listener to the 'View More Details' button
+            newCard
+              .querySelector(".admin-notif-btn-feed")
+              .addEventListener("click", function () {
+                // Update modal content with Firebase data
+                document.getElementById("post-title").innerText =
+                  postData.title;
+                document.getElementById("post-content").innerHTML =
+                  postData.content; // You can set the content here
+              });
+
+            // Attach event listener to the delete button
+            const deleteButton = newCard.querySelector(
+              ".admin-button-delete-itemrendered"
+            );
+            deleteButton.addEventListener("click", function () {
+              const postKey = this.getAttribute("data-post-key");
+
+              // Reference to the specific post node you want to delete
+              const postRef = ref(database, `postannouncements/${postKey}`);
+
+              // Remove the post from the database
+              remove(postRef)
+                .then(() => {
+                  location.reload();
+                  alert(`Post deleted successfully.`);
+                  // Optionally, add code here for any additional actions after deletion
+                })
+                .catch((error) => {
+                  console.error(
+                    `Error deleting post ${postKey}: ${error.message}`
+                  );
+                });
+            });
+
+            if (cardContainer) {
+              cardContainer.appendChild(newCard);
+            } else {
+              console.error("cardContainer is null or undefined.");
+            }
+          }
+
+          function postPicture(number) {
+            console.log("post picture number", number);
+            const storageRef = dbRef(storage, `posts/${number}`);
+
+            listAll(storageRef)
+              .then((res) => {
+                if (res.items.length > 0) {
+                  // Sort items by their metadata (creation time)
+                  const sortedItems = res.items.sort(
+                    (a, b) => b.timeCreated - a.timeCreated
+                  );
+
+                  // Get the most recent item (first item after sorting)
+                  const mostRecentItem = sortedItems[0];
+
+                  // Fetch download URL for the most recent item
+                  getDownloadURL(mostRecentItem).then((url) => {
+                    const profilePic = document.getElementById(
+                      "rendered-image-reference-1"
+                    );
+                    profilePic.src = url;
+                  });
+                } else {
+                  console.error("No images found in the folder");
+                }
+              })
+              .catch((error) => {
+                console.error("Error listing files:", error);
+              });
+          }
+        });
+      });
+
+      //////////// Process Text
+      function processTextForFirebase(text) {
+        // Convert newlines to <br> tags
+        const textWithBr = text.replace(/\n/g, "<br>");
+
+        // Convert URLs into clickable links and preserve spaces
+        const formattedText = textWithBr
+          .split("\n")
+          .map((line) => {
+            const lineWithLinks = line.match(/https?:\/\/[^\s]+/)
+              ? `<p>${linkify(line)}</p>`
+              : `<p>${line.replace(/ /g, "&nbsp;")}</p>`;
+            return lineWithLinks;
+          })
+          .join("");
+
+        return formattedText;
+      }
+    </script>
+  </body>
+</html>
