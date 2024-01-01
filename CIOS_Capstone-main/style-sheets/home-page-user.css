@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  color: #14213d;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: url("../image-source/background-set-b.png") no-repeat center
+    center fixed;
+  background-size: 100% 100%;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-part-content img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.logo-source img {
+  width: 200px;
+  flex-direction: column;
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.user-login-container {
+  max-width: 450px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1.5;
+  margin-bottom: 1px;
+  margin-top: 0;
+}
+
+.separator {
+  width: 300px;
+  max-width: 340px;
+  height: 4px;
+  background-color: #14213d;
+  margin: 10px;
+}
+
+.welcome-message {
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 20px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-form-control {
+  width: 100%;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.admin-link {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.05em;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+  background-color: red;
+  border-radius: 15px;
+  font-size: 1.1em;
+}
+
+input {
+  width: 100%;
+  background-color: white;
+  color: #333;
+  letter-spacing: 0.5px;
+  padding: 14px 64px;
+  border: 2px #ffb703 solid;
+}
+
+input ~ i {
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  transition: color 0.4s;
+}
+
+input:focus ~ i {
+  color: #14213d;
+}
+
+button.submit {
+  color: white;
+  padding: 14px 64px;
+  width: 32px auto;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  background-color: #14213d;
+}
+
+/* Mobile Version */
+@media (max-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: none;
+  }
+
+  .side-part-content {
+    display: none;
+  }
+}

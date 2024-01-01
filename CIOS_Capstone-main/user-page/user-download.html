@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style-sheets/user-main-page.css" />
+    <link rel="icon" href="../image-source/set-web-icon.png" />
+
+    <title>COIS - Download Certificate</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <h4 class="page-title">Scholar Access</h4>
+      <div class="profile">
+        <input type="text" placeholder="Search..." id="user-search" />
+        <i class="bx bx-search"></i>
+        <div class="dropdown">
+          <a
+            class="btn btn-secondary dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              class="profile-image"
+              src="../image-source/student-icon.png"
+              alt=""
+            />
+            Scholar Tab
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="user-scholar-status.html"
+                >Scholar Status</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="../home-page-user.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <input type="checkbox" id="toggle" />
+    <label for="toggle" class="side-toggle"><i class="bx bx-menu"></i></label>
+
+    <div class="sidebar">
+      <div class="sidebar-content">
+        <ul class="lists">
+          <li class="list">
+            <a class="nav-link" id="dashboardlink">
+              <i class="bx bxs-dashboard icon"></i>
+              <span class="link">Dashboard</span>
+            </a>
+          </li>
+          <li class="list">
+            <a class="nav-link" id="ScholarStatuslink">
+              <i class="bx bxs-user-account icon"></i>
+              <span class="link">Scholar Status</span>
+            </a>
+          </li>
+          <li class="list">
+            <a class="nav-link" id="notificationLink">
+              <i class="bx bx-notification icon"></i>
+              <span class="link">Announcement</span>
+            </a>
+          </li>
+          <li class="list">
+            <a class="nav-link" id="BrowseServicelink">
+              <i class="bx bx-category icon"></i>
+              <span class="link">Browse Service</span>
+            </a>
+          </li>
+          <li class="list">
+            <a class="nav-link" id="ConnectAdminlink">
+              <i class="bx bx-message-edit icon"></i>
+              <span class="link">Connect Admin</span>
+            </a>
+          </li>
+          <li class="list">
+            <a class="nav-link" id="UploadAttachmentslink">
+              <i class="bx bx-upload icon"></i>
+              <span class="link">Upload Attachments</span>
+            </a>
+          </li>
+          <li class="list">
+            <a class="nav-link" id="DownlaodCSRlink1">
+              <i class="bx bxs-download icon"></i>
+              <span class="link">Downlaod CSR</span>
+            </a>
+          </li>
+        </ul>
+        <div class="bottom-content">
+          <li class="list-bottom">
+            <a href="../home-page-user.html?${userId}" class="nav-link">
+              <i class="bx bx-log-out icon"></i>
+              <span class="link">Logout</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </div>
+
+    <main class="mt-5 pt-3">
+      <p class="user-page-title">Download Certificate of Scholarship Renewal</p>
+      <nav aria-label="breadcrumb" style="margin-left: 10px">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="user-dashboard-main.html">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Download CSR
+          </li>
+        </ol>
+      </nav>
+
+      <div class="card mb-2" style="max-width: 100%">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              id="profilePic"
+              src="../image-source/sample-avatar.jpg"
+              class="img-fluid rounded-start"
+              alt="..."
+              style="height: 15rem; width: 15rem"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title user-full-name" id="fullname">Loading</h5>
+              <ul class="list-group list-group-horizontal-xxl">
+                <li class="list-group-item">
+                  Status:
+                  <span
+                    class="user-profile-decorate user-scholar-status"
+                    id="statusS"
+                    >Loading</span
+                  >
+                </li>
+                <li class="list-group-item">
+                  School Year:
+                  <span
+                    class="user-profile-decorate user-scholar-acadyear"
+                    id="schoolyearS"
+                    >Loading</span
+                  >
+                </li>
+                <li class="list-group-item">
+                  Program:
+                  <span
+                    class="user-profile-decorate user-scholar-program"
+                    id="programS"
+                    >Loading</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title" style="font-weight: bold; color: #0e2b63">
+            Download your Document
+          </h5>
+          <p style="font-size: 15px">
+            Verify all the details present in your status before downloading the
+            document
+          </p>
+
+          <a
+            href="#"
+            class="btn btn-primary user-download-button"
+            id="generateUserPDF"
+          >
+            <i class="bx bxs-file"></i> Download CSR</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <!-- To display reminder that they cannot generate PDF -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="statusToastContainer"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <img
+            src="../image-source/OIS-logo.svg"
+            class="rounded me-2 reminderMessage"
+            alt="..."
+          />
+          <strong class="me-auto">City Scholarship Office</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">
+          You cannot generate a document as you are in 'Inactive' status.
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.8/pdfmake.min.js"
+      integrity="sha512-uVTNNXu6Z1rrgpMLuErTMferac7mGwfA7/oXfuGbpSmBqcopa8jCURWE1rBF3LMg7Zir+avOX807eGwHaL7akA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.8/vfs_fonts.min.js"
+      integrity="sha512-EFlschXPq/G5zunGPRSYqazR1CMKj0cQc8v6eMrQwybxgIbhsfoO5NAMQX3xFDQIbFlViv53o7Hy+yCWw6iZxA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script type="module">
+      // Import the necessary Firebase functions
+      // Import the necessary Firebase functions
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+      import {
+        getDatabase,
+        ref as dbRef,
+        set,
+        get,
+      } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+      import {
+        getStorage,
+        ref,
+        uploadBytes,
+        list,
+        getDownloadURL,
+        listAll,
+      } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
+
+      // Initialize Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyAXTWA8tDgh36kHxr3oiI2mdZk4xN1ExIU",
+        authDomain: "coisprojectmain.firebaseapp.com",
+        projectId: "coisprojectmain",
+        storageBucket: "coisprojectmain.appspot.com",
+        messagingSenderId: "666040501925",
+        appId: "1:666040501925:web:a53d190dbffca2ceac2f4c",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      const storage = getStorage(app);
+
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+        var results = regex.exec(location.search);
+        return results === null
+          ? ""
+          : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+
+      var userId = getUrlParameter("uid");
+
+      // Fetch user data
+      function fetchUserData() {
+        const userId = getUrlParameter("uid");
+        const userRef = dbRef(database, `users/${userId}`);
+
+        // Fetch user data
+        get(userRef)
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              const userData = snapshot.val();
+              const fullName = userData.fullname;
+              const program = userData.program;
+              const status = userData.status;
+              const schoolyear = userData.schoolyear;
+
+              // Update HTML elements with retrieved data
+              const fullNameSpan = document.getElementById("fullname");
+              const programSpan = document.getElementById("programS");
+              const statusSpan = document.getElementById("statusS");
+              const schoolyearSpan = document.getElementById("schoolyearS");
+
+              if (fullNameSpan) {
+                fullNameSpan.textContent = fullName;
+              }
+              if (programSpan) {
+                programSpan.textContent = program;
+              }
+              if (statusSpan) {
+                statusSpan.textContent = status;
+              }
+              if (schoolyearSpan) {
+                schoolyearSpan.textContent = schoolyear;
+              }
+            } else {
+              console.log("No data available for this user");
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching user data:", error);
+          });
+      }
+
+      // Call the function to fetch user data
+      fetchUserData();
+
+      function updateProfilePicture() {
+        const userId = getUrlParameter("uid"); // Replace this with your logic to get the user ID
+        const storageRef = ref(storage, `Users/${userId}/imageprofile`);
+
+        listAll(storageRef)
+          .then((res) => {
+            if (res.items.length > 0) {
+              // Sort items by their metadata (creation time)
+              const sortedItems = res.items.sort(
+                (a, b) => b.timeCreated - a.timeCreated
+              );
+
+              // Get the most recent item (first item after sorting)
+              const mostRecentItem = sortedItems[0];
+
+              // Fetch download URL for the most recent item
+              getDownloadURL(mostRecentItem).then((url) => {
+                const profilePic = document.getElementById("profilePic");
+                profilePic.src = url;
+              });
+            } else {
+              console.error("No images found in the folder");
+            }
+          })
+          .catch((error) => {
+            console.error("Error listing files:", error);
+          });
+      }
+
+      // Call the function to update the profile picture
+      updateProfilePicture();
+
+      function generatePDF() {
+        const userId = getUrlParameter("uid");
+        const userRef = dbRef(database, `users/${userId}`);
+
+        // Fetch user data
+        get(userRef)
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              const userData = snapshot.val();
+              const fullName = userData.fullname;
+              const program = userData.program;
+              const schoolYear = userData.schoolyear;
+
+              const currentDate = new Date();
+              const formattedDate = currentDate.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              });
+
+              const docDefinition = {
+                pageSize: {
+                  width: 595.28,
+                  height: "auto",
+                },
+                content: [
+                  {
+                    text: "CERTIFICATE OF SCHOLARSHIP RENEWAL",
+                    style: "header",
+                  },
+                  {
+                    text: "Period Covered: 1st Semester SY 2023-2024",
+                    style: "subHeader",
+                  },
+                  {
+                    text: [
+                      "    THIS IS TO CERTIFY the RENEWAL OF SCHOLARSHIP of ",
+                      { text: fullName, bold: true, decoration: "underline" },
+                      ", a resident of Cagayan de Oro City, to the City College Scholarship Program with the Course ",
+                      { text: program, bold: true, decoration: "underline" },
+                      " at UNIVERSITY OF SCIENCE AND TECHNOLOGY OF SOUTHERN PHILIPPINES for the First Semester of School Year ",
+                      { text: schoolYear, bold: true, decoration: "underline" },
+                    ],
+                    style: "boldParagraph",
+                  },
+                  "",
+                  {
+                    text: "    This certifies further that the City Government of Cagayan de Oro through the City Treasurer will pay the Tuition, Matriculation, and Other Fees which are relevant or applicable to the Course taken by the said scholar and as billed by the school",
+                    style: "boldParagraph",
+                  },
+                  "",
+                  {
+                    text: "    This certification is issued upon the request of the above-named student-scholar that he/she is allowed to enroll in your school even without or with minimal down-payment however, the City Government through the City Scholarships Office shall submit an Official Master list of Scholars thirty (30) days after the last day of enrollment",
+                    style: "boldParagraph",
+                  },
+                  "",
+                  {
+                    text:
+                      "    Issued this " +
+                      formattedDate +
+                      " at the City of Cagayan de Oro, Philippines.",
+                    style: "paragraph",
+                  },
+                  { text: "", margin: [0, 0, 0, 20] }, // 2 space below margin
+                  {
+                    text: "MS. RICHEL PETALCURIN-DAHAY\nCity Scholarship Head",
+                    style: "boldSignature",
+                  },
+                  {
+                    text: "MS. SHEILA B. LUMBATAN\nChief of Staff, Mayor's Office",
+                    style: "boldSignature",
+                  },
+                ],
+                styles: {
+                  header: {
+                    fontSize: 18,
+                    bold: true,
+                    alignment: "center",
+                    margin: [0, 0, 0, 20], // Space below margin
+                  },
+                  subHeader: {
+                    fontSize: 14,
+                    alignment: "center",
+                    margin: [0, 0, 0, 30], // Space below margin
+                  },
+                  boldParagraph: {
+                    fontSize: 12,
+                    alignment: "justify",
+                    margin: [0, 0, 0, 30], // Space below margin
+                  },
+                  paragraph: {
+                    fontSize: 12,
+                    alignment: "justify",
+                    margin: [0, 0, 0, 30], // Space below margin
+                    lineHeight: 1.5, // Set line spacing to 1.5
+                  },
+                  boldSignature: {
+                    fontSize: 12,
+                    bold: true,
+                    alignment: "left",
+                    margin: [0, 0, 0, 40], // Space below margin
+                  },
+                  bottomText: {
+                    fontSize: 8,
+                    alignment: "left",
+                    margin: [0, 0, 0, 30], // Space below margin
+                  },
+                },
+              };
+
+              // Add the text at the bottom of the PDF
+              var bottomText = {
+                text: "KEEP THIS CERTIFICATE. YOU WILL BE REQUIRED TO PRESENT THIS IN ALL YOUR DEALINGS WITH THE COLLEGES.",
+                style: "bottomText",
+              };
+              docDefinition.content.push(bottomText);
+
+              pdfMake
+                .createPdf(docDefinition)
+                .download("Certificate_of_Scholarship_Renewal.pdf");
+            } else {
+              console.log("No data available for this user");
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching user data:", error);
+          });
+      }
+
+      document
+        .getElementById("generateUserPDF")
+        .addEventListener("click", async () => {
+          const userId = getUrlParameter("uid");
+
+          try {
+            const userSnapshot = await get(
+              dbRef(database, `users/${userId}/status`)
+            );
+            const userStatus = userSnapshot.val();
+
+            if (userStatus === "Passed") {
+              generatePDF(); // Call your generatePDF function if status is "Passed"
+            } else {
+              // Display message to user that they cannot generate PDF because of failed status
+              const statusToastContainer = new bootstrap.Toast(
+                document.getElementById("statusToastContainer")
+              );
+              statusToastContainer.show();
+            }
+          } catch (error) {
+            console.error("Error fetching user status:", error);
+          }
+        });
+
+      var notificationLink = document.getElementById("notificationLink");
+      var dashboardlink = document.getElementById("dashboardlink");
+      var ScholarStatuslink = document.getElementById("ScholarStatuslink");
+      var BrowseServicelink = document.getElementById("BrowseServicelink");
+      var ConnectAdminlink = document.getElementById("ConnectAdminlink");
+      var UploadAttachmentslink = document.getElementById(
+        "UploadAttachmentslink"
+      );
+      var DownlaodCSRlink = document.getElementById("DownlaodCSRlink");
+      var DownlaodCSRlink1 = document.getElementById("DownlaodCSRlink1");
+      var ViewRenderedServiceslink = document.getElementById(
+        "ViewRenderedServiceslink"
+      );
+
+      if (userId && ScholarStatuslink) {
+        ScholarStatuslink.href = "user-scholar-status.html?uid=" + userId;
+      }
+      if (userId && notificationLink) {
+        notificationLink.href = "user-notification.html?uid=" + userId;
+      }
+      if (userId && dashboardlink) {
+        dashboardlink.href = "user-dashboard-main.html?uid=" + userId;
+      }
+      if (userId && BrowseServicelink) {
+        BrowseServicelink.href = "user-browse-service.html?uid=" + userId;
+      }
+      if (userId && ConnectAdminlink) {
+        ConnectAdminlink.href = "user-connect-admin.html?uid=" + userId;
+      }
+      if (userId && UploadAttachmentslink) {
+        UploadAttachmentslink.href =
+          "user-upload-attachments.html?uid=" + userId;
+      }
+      if (userId && DownlaodCSRlink && DownlaodCSRlink1) {
+        DownlaodCSRlink.href = "user-download.html?uid=" + userId;
+        DownlaodCSRlink1.href = "user-download.html?uid=" + userId;
+      }
+      if (userId && ViewRenderedServiceslink) {
+        ViewRenderedServiceslink.href =
+          "user-view-rendered-services.html?uid=" + userId;
+      }
+    </script>
+  </body>
+</html>
